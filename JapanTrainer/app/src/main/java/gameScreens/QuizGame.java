@@ -67,7 +67,7 @@ public class QuizGame extends AppCompatActivity {
         Button btn2 = findViewById(R.id.btn2);
         Button btn3 = findViewById(R.id.btn3);
         Button btn4 = findViewById(R.id.btn4);
-
+        // Add buttons to ArrayList
         buttons.add(btn1);
         buttons.add(btn2);
         buttons.add(btn3);
