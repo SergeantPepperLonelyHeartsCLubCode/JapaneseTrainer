@@ -91,9 +91,6 @@ public class QuizGame extends AppCompatActivity {
                         points.incrementPoints();
                     }
 
-                    // To store points in the phone memory
-                    points.storePoints();
-
                     openQuizGame();
                 }
             });

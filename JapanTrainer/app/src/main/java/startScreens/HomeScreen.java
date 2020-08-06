@@ -41,7 +41,7 @@ public class HomeScreen extends AppCompatActivity {
 
         // Setting points from to TextView
         textView = findViewById(R.id.points);
-        textView.setText(String.valueOf(points.getPointsPreferences()));
+        textView.setText(String.valueOf(points.getPoints()));
 
         // Button for starting the game
         Button btn = findViewById(R.id.startGame);
