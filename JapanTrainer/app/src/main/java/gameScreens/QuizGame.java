@@ -23,6 +23,8 @@ import helpClasses.managerClasses.GlobalVariables;
 import helpClasses.managerClasses.PointsManager;
 import helpClasses.managerClasses.WordsManager;
 
+// Github comment
+
 public class QuizGame extends AppCompatActivity {
 
     // For showing and changing points
