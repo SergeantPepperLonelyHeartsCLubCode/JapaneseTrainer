@@ -1,3 +1,4 @@
+// Comment for github
 package helpClasses.wordClasses;
 
 public class KatakanaWord extends Word {
