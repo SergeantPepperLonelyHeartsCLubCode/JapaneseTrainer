@@ -9,10 +9,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+import androidx.appcompat.widget.Toolbar;
 import helpClasses.DatabaseManager;
 import helpClasses.managerClasses.InsertManager;
 import helpClasses.managerClasses.PointsManager;
@@ -23,8 +25,9 @@ import com.example.japantrainer.R;
 public class HomeScreen extends AppCompatActivity {
 
 
-    TextView textView;
-    PointsManager points;
+    private TextView textView;
+    private PointsManager points;
+    private Toolbar toolbar;
 
 
     @Override
@@ -34,6 +37,10 @@ public class HomeScreen extends AppCompatActivity {
 
         // Initilializing
         points = new PointsManager(this);
+
+        // Setting Toolbar
+        toolbar = findViewById(R.id.homescreen_toolbar);
+        setSupportActionBar(toolbar);
 
         // Inserting the words
         InsertManager insert = new InsertManager(this);
@@ -59,5 +66,6 @@ public class HomeScreen extends AppCompatActivity {
         Intent intent = new Intent(this, FontChoice.class);
         startActivity(intent);
     }
+
 
 }
