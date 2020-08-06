@@ -8,6 +8,8 @@ public class PointsManager {
     Activity activity;
     GlobalVariables global;
 
+    public final static String preferencesName = "score";
+
     public PointsManager(Activity activity){
         this.activity = activity;
         global = (GlobalVariables) activity.getApplication();
@@ -19,6 +21,8 @@ public class PointsManager {
     public void incrementPoints(){
         global.points = global.points + 1;
     }
+
+    
 
 
 }
