@@ -39,11 +39,9 @@ public class HomeScreen extends AppCompatActivity {
         InsertManager insert = new InsertManager(this);
         insert.insertWords();
 
-        // Setting points from sharedpreferences
+        // Setting points from to TextView
         textView = findViewById(R.id.points);
-        SharedPreferences score = this.getSharedPreferences(points.preferencesName, MODE_PRIVATE);
-        int tmp = score.getInt(points.preferencesName, 0);
-        textView.setText(String.valueOf(tmp));
+        textView.setText(String.valueOf(points.getPointsPreferences()));
 
         // Button for starting the game
         Button btn = findViewById(R.id.startGame);

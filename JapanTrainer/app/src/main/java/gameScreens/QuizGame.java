@@ -92,10 +92,7 @@ public class QuizGame extends AppCompatActivity {
                     }
 
                     // To store points in the phone memory
-                    SharedPreferences score = getSharedPreferences(points.preferencesName, MODE_PRIVATE);
-                    SharedPreferences.Editor editor = score.edit();
-                    editor.putInt(points.preferencesName, points.getPoints());
-                    editor.commit();
+                    points.storePoints();
 
                     openQuizGame();
                 }
