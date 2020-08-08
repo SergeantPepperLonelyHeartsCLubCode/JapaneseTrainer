@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
@@ -14,6 +15,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.example.japantrainer.R;
 
 import helpClasses.managerClasses.FontManager;
+import helpClasses.managerClasses.PointsManager;
 import helpClasses.managerClasses.WordsManager;
 import startScreens.HomeScreen;
 
@@ -24,6 +26,10 @@ public class FontChoice extends AppCompatActivity implements View.OnClickListene
     // Variable for setting all IDs
     private WordsManager words;
 
+    private TextView textView;
+    private PointsManager points;
+    private Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,15 +38,18 @@ public class FontChoice extends AppCompatActivity implements View.OnClickListene
         // Initialization
         font = new FontManager(this);
         words = new WordsManager(this);
+        points = new PointsManager(this);
 
-        // Setting up back button
-        // Converting toolbar to ActionBar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.homescreen_toolbar);
+        // Setting Toolbar
+        toolbar = findViewById(R.id.homescreen_toolbar);
         setSupportActionBar(toolbar);
-        //Setting up the button
+        //Setting up the back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
+        // Setting points from to TextView
+        textView = findViewById(R.id.points);
+        textView.setText(String.valueOf(points.getPoints()));
 
 
         Button katakana = findViewById(R.id.katakana);
