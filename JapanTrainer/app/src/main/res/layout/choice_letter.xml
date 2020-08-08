@@ -16,8 +16,10 @@
         android:layout_marginStart="160dp"
         android:layout_marginTop="280dp"
         android:text="Romaji"
+        android:textColor="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/homescreen_button"/>
 
     <Button
         android:id="@+id/japanese"
@@ -26,6 +28,9 @@
         android:layout_marginStart="160dp"
         android:layout_marginTop="60dp"
         android:text="Japanese"
+        android:textColor="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/romaji" />
+        app:layout_constraintTop_toBottomOf="@+id/romaji"
+        android:background="@drawable/homescreen_button"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
