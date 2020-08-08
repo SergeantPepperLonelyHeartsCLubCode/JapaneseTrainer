@@ -16,8 +16,6 @@ public class GlobalVariables extends Application {
     String font;
     String letter;
 
-    int points = 0;
-
     // List of all IDs
     ArrayList<Integer> id_permanent = new ArrayList<>();
     // List of IDs to not to repeat the words

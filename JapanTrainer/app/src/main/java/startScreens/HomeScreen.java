@@ -7,12 +7,17 @@ package startScreens;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
-
+import android.widget.TextView;
+import androidx.appcompat.widget.Toolbar;
 import helpClasses.DatabaseManager;
 import helpClasses.managerClasses.InsertManager;
+import helpClasses.managerClasses.PointsManager;
 import startScreens.choiceScreens.FontChoice;
 
 import com.example.japantrainer.R;
@@ -20,15 +25,30 @@ import com.example.japantrainer.R;
 public class HomeScreen extends AppCompatActivity {
 
 
+    private TextView textView;
+    private PointsManager points;
+    private Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.screen_home);
 
+        // Initilializing
+        points = new PointsManager(this);
+
+        // Setting Toolbar
+        toolbar = findViewById(R.id.homescreen_toolbar);
+        setSupportActionBar(toolbar);
+
         // Inserting the words
         InsertManager insert = new InsertManager(this);
         insert.insertWords();
+
+        // Setting points from to TextView
+        textView = findViewById(R.id.points);
+        textView.setText(String.valueOf(points.getPoints()));
 
         // Button for starting the game
         Button btn = findViewById(R.id.startGame);
@@ -46,5 +66,6 @@ public class HomeScreen extends AppCompatActivity {
         Intent intent = new Intent(this, FontChoice.class);
         startActivity(intent);
     }
+
 
 }
