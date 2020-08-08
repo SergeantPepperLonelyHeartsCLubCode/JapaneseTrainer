@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context="startScreens.choiceScreens.LetterChoice">
 
+    <include
+        layout="@layout/homescreen_toolbar"/>
+
     <Button
         android:id="@+id/romaji"
         android:layout_width="wrap_content"
