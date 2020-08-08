@@ -14,7 +14,8 @@
         <activity android:name="startScreens.choiceScreens.GameChoice" />
         <activity android:name="startScreens.choiceScreens.LetterChoice" />
         <activity android:name="gameScreens.TextGame" />
-        <activity android:name="startScreens.choiceScreens.FontChoice" />
+        <activity android:name="startScreens.choiceScreens.FontChoice"
+            android:parentActivityName="startScreens.HomeScreen"/>
         <activity android:name="startScreens.HomeScreen" />
         <activity android:name="startScreens.SplashScreen">
             <intent-filter>

@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context="startScreens.choiceScreens.FontChoice">
 
+    <include
+        layout="@layout/homescreen_toolbar"/>
+
     <Button
         android:id="@+id/katakana"
         android:layout_width="wrap_content"

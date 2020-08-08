@@ -3,15 +3,19 @@ package startScreens.choiceScreens;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.japantrainer.R;
 
 import helpClasses.managerClasses.FontManager;
-import helpClasses.managerClasses.GlobalVariables;
 import helpClasses.managerClasses.WordsManager;
+import startScreens.HomeScreen;
 
 public class FontChoice extends AppCompatActivity implements View.OnClickListener {
 
@@ -20,6 +24,7 @@ public class FontChoice extends AppCompatActivity implements View.OnClickListene
     // Variable for setting all IDs
     private WordsManager words;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +32,16 @@ public class FontChoice extends AppCompatActivity implements View.OnClickListene
         // Initialization
         font = new FontManager(this);
         words = new WordsManager(this);
+
+        // Setting up back button
+        // Converting toolbar to ActionBar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.homescreen_toolbar);
+        setSupportActionBar(toolbar);
+        //Setting up the button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
 
         Button katakana = findViewById(R.id.katakana);
         Button hiragana = findViewById(R.id.hiragana);
