@@ -5,11 +5,13 @@
 package startScreens.choiceScreens;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.japantrainer.R;
 
@@ -19,8 +21,9 @@ import helpClasses.managerClasses.PointsManager;
 
 public class GameChoice extends AppCompatActivity implements View.OnClickListener {
 
-    // So set points to 0
     PointsManager points;
+    private Toolbar toolbar;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,16 @@ public class GameChoice extends AppCompatActivity implements View.OnClickListene
 
         // Initialization
         points = new PointsManager(this);
+
+        // Setting Toolbar
+        toolbar = findViewById(R.id.homescreen_toolbar);
+        setSupportActionBar(toolbar);
+        //Setting up the back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // Setting points from to TextView
+        textView = findViewById(R.id.points);
+        textView.setText(String.valueOf(points.getPoints()));
 
         Button text_game = findViewById(R.id.text_game);
         Button quiz_game = findViewById(R.id.quiz_game);

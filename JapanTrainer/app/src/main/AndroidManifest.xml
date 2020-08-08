@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="gameScreens.QuizGame"></activity>
-        <activity android:name="startScreens.choiceScreens.GameChoice" />
+        <activity android:name="startScreens.choiceScreens.GameChoice"
+            android:parentActivityName="startScreens.choiceScreens.LetterChoice"/>
         <activity android:name="startScreens.choiceScreens.LetterChoice"
             android:parentActivityName="startScreens.choiceScreens.FontChoice"/>
         <activity android:name="gameScreens.TextGame" />
