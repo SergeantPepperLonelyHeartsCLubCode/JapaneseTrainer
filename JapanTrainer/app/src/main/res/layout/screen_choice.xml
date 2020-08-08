@@ -18,10 +18,12 @@
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="3dp"
         android:text="Katakana"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toTopOf="@+id/kanji"
         app:layout_constraintEnd_toStartOf="@+id/kanji"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/homescreen_button"/>
 
     <Button
         android:id="@+id/hiragana"
@@ -32,10 +34,12 @@
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="306dp"
         android:text="Hiragana"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/kanji"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/katakana" />
+        app:layout_constraintTop_toBottomOf="@+id/katakana"
+        android:background="@drawable/homescreen_button"/>
 
     <Button
         android:id="@+id/kanji"
@@ -46,8 +50,10 @@
         android:layout_marginEnd="123dp"
         android:layout_marginBottom="13dp"
         android:text="Kanji"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toTopOf="@+id/hiragana"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/katakana"
-        app:layout_constraintTop_toBottomOf="@+id/katakana" />
+        app:layout_constraintTop_toBottomOf="@+id/katakana"
+        android:background="@drawable/homescreen_button"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
