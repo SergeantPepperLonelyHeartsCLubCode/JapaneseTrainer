@@ -109,7 +109,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
             contentValues.put(KATAKANA, ((KatakanaSyllable) syllable).getKatakana());
             contentValues.put(ROMAJI, syllable.getRomaji());
 
-            long result = db.insert(TABLE_NAME_KATAKANA, null, contentValues);
+            long result = db.insert(TABLE_NAME_KATAKANA_SYLLABLES, null, contentValues);
 
             if (result == -1){
                 return false;
@@ -127,7 +127,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
             contentValues.put(HIRAGANA, ((HiraganaSyllable) syllable).getHiragana());
             contentValues.put(ROMAJI, syllable.getRomaji());
 
-            long result = db.insert(TABLE_NAME_HIRAGANA, null, contentValues);
+            long result = db.insert(TABLE_NAME_HIRAGANA_SYLLABLES, null, contentValues);
 
             if (result == -1){
                 return false;

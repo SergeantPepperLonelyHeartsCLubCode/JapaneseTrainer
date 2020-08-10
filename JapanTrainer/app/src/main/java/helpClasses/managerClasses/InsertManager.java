@@ -28,6 +28,8 @@ public class InsertManager {
     public void insertWords(){
         DatabaseManager db = new DatabaseManager(context);
 
+        db.deleteDB();
+
         if (db.isEmpty()) {
             words(db);
             syllables(db);

@@ -16,6 +16,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.widget.Toolbar;
 
 import helpClasses.managerClasses.ChoiceManager;
@@ -42,6 +44,7 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.screen_home);
         // Initialization
+        points = new PointsManager(this);
         choiceManager = new ChoiceManager(this);
 
         // Setting up animation
@@ -60,8 +63,6 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
             }
         }, 1000);
 
-        // Initilializing
-        points = new PointsManager(this);
 
         // Setting Toolbar
         toolbar = findViewById(R.id.homescreen_toolbar);
