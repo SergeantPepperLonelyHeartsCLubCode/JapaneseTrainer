@@ -31,20 +31,40 @@ public class WordsManager {
 
         DatabaseManager db = new DatabaseManager(activity);
 
-        if (font.isKatakana()){
-            global.id_permanent = db.getAllId(font.katakana);
+        // If we have syllables
+        if (font.isSyllables()){
+            if (font.isKatakana()){
+                global.id_permanent = db.getAllIdSyllable(font.katakana);
 
-            for (Integer tmp : global.id_permanent)
-            {
-                global.id_tmp.add(tmp);
+                for (Integer tmp : global.id_permanent)
+                {
+                    global.id_tmp.add(tmp);
+                }
+            }
+            else {
+                global.id_permanent = db.getAllIdSyllable(font.hiragana);
+
+                for (Integer tmp : global.id_permanent)
+                {
+                    global.id_tmp.add(tmp);
+                }
             }
         }
+        // If we have words
         else {
-            global.id_permanent = db.getAllId(font.hiragana);
 
-            for (Integer tmp : global.id_permanent)
-            {
-                global.id_tmp.add(tmp);
+            if (font.isKatakana()) {
+                global.id_permanent = db.getAllId(font.katakana);
+
+                for (Integer tmp : global.id_permanent) {
+                    global.id_tmp.add(tmp);
+                }
+            } else {
+                global.id_permanent = db.getAllId(font.hiragana);
+
+                for (Integer tmp : global.id_permanent) {
+                    global.id_tmp.add(tmp);
+                }
             }
         }
     }

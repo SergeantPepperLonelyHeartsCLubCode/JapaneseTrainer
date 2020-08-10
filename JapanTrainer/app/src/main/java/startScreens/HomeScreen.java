@@ -75,30 +75,11 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
         textView = findViewById(R.id.points);
         textView.setText(String.valueOf(points.getPoints()));
 
-
         Button syllablesGame = findViewById(R.id.syllablesGame);
         Button wordsGame = findViewById(R.id.wordsGame);
-        Button kanji = findViewById(R.id.kanji);
 
         syllablesGame.setOnClickListener(this);
         wordsGame.setOnClickListener(this);
-
-        // Button for starting the game
-        Button btn1 = findViewById(R.id.syllablesGame);
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openFontChoiceSyllables();
-            }
-        });
-
-        Button btn2 = findViewById(R.id.wordsGame);
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               openFontChoice();
-            }
-        });
     }
 
     // Setting game choice
@@ -111,8 +92,8 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
                 openFontChoiceSyllables();
                 break;
 
-            case R.id.hiragana:
-                choiceManager.setHiragana();
+            case R.id.wordsGame:
+                choiceManager.setWords();
                 openFontChoice();
                 break;
 

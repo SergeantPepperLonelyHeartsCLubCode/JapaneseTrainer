@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="startScreens.choiceScreens.FontChoiceSyllables"></activity>
+        <activity android:name="startScreens.choiceScreens.FontChoiceSyllables"
+            android:parentActivityName="startScreens.HomeScreen"></activity>
         <activity
             android:name="gameScreens.QuizGame"
             android:parentActivityName="startScreens.HomeScreen" />

@@ -28,10 +28,10 @@ public class ChoiceManager {
 
     // Setters for game regimes
     public void setSyllables(){
-        global.syllables = syllables;
+        global.game = syllables;
     }
     public void setWords(){
-        global.words = words;
+        global.game = words;
     }
 
     // Setters for font
@@ -51,6 +51,22 @@ public class ChoiceManager {
     }
     public void setJapanese(){
         global.letter = japanese;
+    }
+
+
+    // Checks for games
+    // Checks for fonts
+    public boolean isSyllables(){
+        if (global.game.equals(syllables))
+            return true;
+        else
+            return false;
+    }
+    public boolean isWords(){
+        if (global.game.equals(syllables))
+            return true;
+        else
+            return false;
     }
 
     // Checks for fonts
