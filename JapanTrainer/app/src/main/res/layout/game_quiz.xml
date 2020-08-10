@@ -4,35 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="gameScreens.QuizGame">
+    tools:context="gameScreens.QuizGame"
+    android:background="@color/colorAccent">
 
-    <TextView
-        android:id="@+id/question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="123dp"
-        android:layout_marginTop="117dp"
-        android:layout_marginEnd="230dp"
-        android:layout_marginBottom="467dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/points"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="121dp"
-        android:layout_marginTop="51dp"
-        android:layout_marginEnd="232dp"
-        android:layout_marginBottom="397dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <LinearLayout
+        android:layout_width="290dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/question"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/question" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@id/question"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:lineSpacingExtra="6dp"
+            android:text="guess what"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="40dp"
+
+            />
+
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn1"

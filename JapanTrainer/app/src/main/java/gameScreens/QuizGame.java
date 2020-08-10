@@ -62,8 +62,8 @@ public class QuizGame extends AppCompatActivity {
         textView.setText(answer);
 
         // Setting points to the TextView
-        textView = findViewById(R.id.points);
-        textView.setText(String.valueOf(points.getPoints()));
+        //textView = findViewById(R.id.points);
+        //textView.setText(String.valueOf(points.getPoints()));
 
         //Setting text to buttons
         Button btn1 = findViewById(R.id.btn1);
