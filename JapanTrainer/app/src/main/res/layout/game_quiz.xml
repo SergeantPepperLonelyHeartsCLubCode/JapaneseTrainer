@@ -4,89 +4,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="gameScreens.QuizGame">
+    tools:context="gameScreens.QuizGame"
+    android:background="@color/colorAccent">
 
-    <TextView
-        android:id="@+id/question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="123dp"
-        android:layout_marginTop="117dp"
-        android:layout_marginEnd="230dp"
-        android:layout_marginBottom="467dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <include
+        layout="@layout/homescreen_toolbar"/>
 
-    <TextView
-        android:id="@+id/points"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="121dp"
-        android:layout_marginTop="51dp"
-        android:layout_marginEnd="232dp"
-        android:layout_marginBottom="397dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="290dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/question"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/question" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@id/question"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:lineSpacingExtra="6dp"
+            android:text="guess what"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="40dp"
+
+            />
+
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="235dp"
-        android:layout_marginBottom="229dp"
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="75dp"
+        android:background="@drawable/quiz_button"
         android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/points" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <Button
         android:id="@+id/btn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="329dp"
-        android:layout_marginEnd="81dp"
-        android:layout_marginBottom="226dp"
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/quiz_button"
         android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn1"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <Button
         android:id="@+id/btn3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="94dp"
-        android:layout_marginTop="102dp"
-        android:layout_marginEnd="229dp"
-        android:layout_marginBottom="79dp"
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/quiz_button"
         android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn1" />
 
     <Button
         android:id="@+id/btn4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="59dp"
-        android:layout_marginTop="86dp"
-        android:layout_marginEnd="81dp"
-        android:layout_marginBottom="92dp"
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/quiz_button"
         android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn3"
         app:layout_constraintTop_toBottomOf="@+id/btn2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

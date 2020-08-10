@@ -9,14 +9,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+// Import for the animation 
 import android.os.Handler;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import androidx.appcompat.widget.Toolbar;
 import helpClasses.DatabaseManager;
 import helpClasses.managerClasses.InsertManager;
 import helpClasses.managerClasses.PointsManager;
@@ -27,10 +30,12 @@ import com.example.japantrainer.R;
 public class HomeScreen extends AppCompatActivity {
 
 
-    TextView textView;
-    PointsManager points;
-    Animation homescreen_animation;
-    ImageView image;
+    private TextView textView;
+    private PointsManager points;
+    private Toolbar toolbar;
+    private Animation homescreen_animation;
+    private ImageView image;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +67,10 @@ public class HomeScreen extends AppCompatActivity {
         // Initilializing
         points = new PointsManager(this);
 
+        // Setting Toolbar
+        toolbar = findViewById(R.id.homescreen_toolbar);
+        setSupportActionBar(toolbar);
+
         // Inserting the words
         InsertManager insert = new InsertManager(this);
         insert.insertWords();
@@ -86,5 +95,6 @@ public class HomeScreen extends AppCompatActivity {
         Intent intent = new Intent(this, FontChoice.class);
         startActivity(intent);
     }
+
 
 }
