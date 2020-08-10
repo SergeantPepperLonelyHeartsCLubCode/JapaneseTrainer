@@ -12,6 +12,11 @@ import android.app.Application;
 import java.util.ArrayList;
 
 public class GlobalVariables extends Application {
+    // For choosing game regimes
+    // For choosing font and letters
+    String syllables;
+    String words;
+
     // For choosing font and letters
     String font;
     String letter;

@@ -10,14 +10,14 @@
         layout="@layout/homescreen_toolbar"/>
 
     <Button
-        android:id="@+id/startGame"
+        android:id="@+id/wordsGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="160dp"
         android:layout_marginTop="461dp"
         android:layout_marginEnd="163dp"
         android:layout_marginBottom="222dp"
-        android:text="Go"
+        android:text="Words"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,6 +26,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" 
         android:background="@drawable/homescreen_button"/>
+
+    <Button
+        android:id="@+id/syllablesGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginEnd="163dp"
+        android:layout_marginBottom="222dp"
+        android:background="@drawable/homescreen_button"
+        android:text="Syllables"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/points"

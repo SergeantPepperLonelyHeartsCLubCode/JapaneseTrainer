@@ -19,7 +19,7 @@ import helpClasses.managerClasses.WordsManager;
 public class FontChoice extends AppCompatActivity implements View.OnClickListener {
 
     // Variable for stroing font choice
-    private ChoiceManager font;
+    private ChoiceManager choiceManager;
     // Variable for setting all IDs
     private WordsManager words;
 
@@ -33,7 +33,7 @@ public class FontChoice extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choice_font);
         // Initialization
-        font = new ChoiceManager(this);
+        choiceManager = new ChoiceManager(this);
         words = new WordsManager(this);
         points = new PointsManager(this);
 
@@ -65,17 +65,17 @@ public class FontChoice extends AppCompatActivity implements View.OnClickListene
         switch (v.getId()){
 
             case R.id.katakana:
-                font.setKatakana();
+                choiceManager.setKatakana();
                 openLetterChoice();
                 break;
 
             case R.id.hiragana:
-                font.setHiragana();
+                choiceManager.setHiragana();
                 openLetterChoice();
                 break;
 
             case R.id.kanji:
-                font.setKanji();
+                choiceManager.setKanji();
                 openLetterChoice();
                 break;
 

@@ -1,7 +1,10 @@
 package startScreens.choiceScreens;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+
+import com.example.japantrainer.R;
 
 public class FontChoiceSyllables extends AppCompatActivity {
 
