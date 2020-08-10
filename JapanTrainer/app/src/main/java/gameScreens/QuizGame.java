@@ -6,6 +6,7 @@
 package gameScreens;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -27,10 +28,10 @@ import helpClasses.managerClasses.WordsManager;
 
 public class QuizGame extends AppCompatActivity {
 
-    // For showing and changing points
+
     private PointsManager points;
-    // For getting the word
-    WordsManager wordsManager;
+    private WordsManager wordsManager;
+    private Toolbar toolbar;
 
     // Strings for question (for TextView) and answer (for Edit), 3 words for buttons
     private String question;
@@ -51,6 +52,16 @@ public class QuizGame extends AppCompatActivity {
         points = new PointsManager(this);
         wordsManager = new WordsManager(this);
 
+        // Setting Toolbar
+        toolbar = findViewById(R.id.homescreen_toolbar);
+        setSupportActionBar(toolbar);
+        //Setting up the back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // Setting points from to TextView
+        textView = findViewById(R.id.points);
+        textView.setText(String.valueOf(points.getPoints()));
+
         // Getting all the words
         String[] tmp = wordsManager.getWord();
         answer = tmp[0];
@@ -60,10 +71,6 @@ public class QuizGame extends AppCompatActivity {
         // Setting the word to the textview
         textView = findViewById(R.id.question);
         textView.setText(answer);
-
-        // Setting points to the TextView
-        textView = findViewById(R.id.points);
-        textView.setText(String.valueOf(points.getPoints()));
 
         //Setting text to buttons
         Button btn1 = findViewById(R.id.btn1);
