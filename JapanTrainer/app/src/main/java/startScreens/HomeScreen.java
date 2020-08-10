@@ -9,10 +9,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+// Import for the animation 
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
 import helpClasses.DatabaseManager;
@@ -28,12 +33,36 @@ public class HomeScreen extends AppCompatActivity {
     private TextView textView;
     private PointsManager points;
     private Toolbar toolbar;
+    private Animation homescreen_animation;
+    private ImageView image;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.screen_home);
+
+
+        homescreen_animation= AnimationUtils.loadAnimation(this,R.anim.homescreen_animation);
+        image=findViewById(R.id.imageView2);
+        image.setAnimation(homescreen_animation);
+
+        new Handler().postDelayed(new Runnable(){
+            @Override
+            public void run(){
+                /* Create an Intent that will start the Menu-Activity. */
+                Intent homeIntent = new Intent(HomeScreen.this, HomeScreen.class);
+//https://stackoverflow.com/questions/13397709/android-hide-imageview
+                ImageView imgView = (ImageView)findViewById(R.id.imageView2);
+                imgView .setVisibility(View.GONE);
+
+
+
+            }
+        }, 1000);
+
+
+
 
         // Initilializing
         points = new PointsManager(this);

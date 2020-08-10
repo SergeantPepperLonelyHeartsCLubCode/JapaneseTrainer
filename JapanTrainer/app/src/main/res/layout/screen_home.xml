@@ -21,8 +21,10 @@
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" 
         android:background="@drawable/homescreen_button"/>
 
     <TextView
@@ -34,5 +36,17 @@
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="742dp"
+        android:layout_height="1178dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/japanflag"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-166dp"
+        tools:layout_editor_absoluteY="-288dp"
+        android:elevation="10dp"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
