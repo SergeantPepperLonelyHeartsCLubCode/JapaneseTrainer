@@ -17,12 +17,12 @@ public class WordsManager {
     // For initilialization of GlobalVariables
     Activity activity;
     GlobalVariables global;
-    FontManager font;
+    ChoiceManager font;
 
     public WordsManager(Activity activity){
         this.activity = activity;
         global = (GlobalVariables) activity.getApplication();
-        font = new FontManager(activity);
+        font = new ChoiceManager(activity);
     }
 
     // Get IDs of all the words in the DB

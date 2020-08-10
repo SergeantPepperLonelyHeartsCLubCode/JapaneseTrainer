@@ -11,14 +11,12 @@ import android.widget.TextView;
 
 import com.example.japantrainer.R;
 
-import helpClasses.managerClasses.FontManager;
-import helpClasses.managerClasses.GlobalVariables;
+import helpClasses.managerClasses.ChoiceManager;
 import helpClasses.managerClasses.PointsManager;
-import helpClasses.managerClasses.WordsManager;
 
 public class LetterChoice extends AppCompatActivity implements View.OnClickListener {
 
-    private FontManager font;
+    private ChoiceManager font;
     private TextView textView;
     private PointsManager points;
     private Toolbar toolbar;
@@ -29,7 +27,7 @@ public class LetterChoice extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.choice_letter);
 
         // Initialization
-        font = new FontManager(this);
+        font = new ChoiceManager(this);
         points = new PointsManager(this);
 
         // Setting Toolbar

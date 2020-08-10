@@ -12,14 +12,14 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.japantrainer.R;
 
-import helpClasses.managerClasses.FontManager;
+import helpClasses.managerClasses.ChoiceManager;
 import helpClasses.managerClasses.PointsManager;
 import helpClasses.managerClasses.WordsManager;
 
 public class FontChoice extends AppCompatActivity implements View.OnClickListener {
 
     // Variable for stroing font choice
-    private FontManager font;
+    private ChoiceManager font;
     // Variable for setting all IDs
     private WordsManager words;
 
@@ -33,7 +33,7 @@ public class FontChoice extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choice_font);
         // Initialization
-        font = new FontManager(this);
+        font = new ChoiceManager(this);
         words = new WordsManager(this);
         points = new PointsManager(this);
 

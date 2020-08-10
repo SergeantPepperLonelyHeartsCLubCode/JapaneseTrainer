@@ -2,7 +2,7 @@ package helpClasses.managerClasses;
 
 import android.app.Activity;
 
-public class FontManager {
+public class ChoiceManager {
 
     // For initilialization of GlobalVariables
     Activity activity;
@@ -18,7 +18,7 @@ public class FontManager {
 
 
 
-    public FontManager(Activity activity){
+    public ChoiceManager(Activity activity){
         this.activity = activity;
         global = (GlobalVariables) activity.getApplication();
     }

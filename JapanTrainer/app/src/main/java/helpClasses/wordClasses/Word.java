@@ -40,5 +40,4 @@ public class Word {
         return "romaji: " + romaji;
     }
 
-
 }
