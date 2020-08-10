@@ -51,10 +51,6 @@ public class TextGame extends AppCompatActivity {
         textView = findViewById(R.id.question);
         textView.setText(question);
 
-        // Setting points to the TextView
-        textView = findViewById(R.id.points);
-        textView.setText(String.valueOf(points.getPoints()));
-
         // Setting Edit
         EditText edit = findViewById(R.id.edit_text);
         edit.setOnEditorActionListener(editorListener);
