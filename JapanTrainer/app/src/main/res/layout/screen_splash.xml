@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/japanflag"
+    android:background="#f8f8ff"
     tools:context="startScreens.SplashScreen">
 
     <TextView
@@ -18,5 +18,17 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="321dp"
+        android:layout_height="240dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/japanflag" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
