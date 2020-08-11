@@ -1,7 +1,7 @@
 // Manage database with words
 // Created 04.08.2020
 
-package helpClasses;
+package helpClasses.managerClasses;
 
 import android.content.ContentValues;
 import android.content.Context;

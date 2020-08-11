@@ -4,11 +4,12 @@
 package helpClasses.managerClasses;
 
 import android.app.Activity;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-import helpClasses.DatabaseManager;
 import helpClasses.syllableClasses.HiraganaSyllable;
 import helpClasses.syllableClasses.KatakanaSyllable;
 import helpClasses.wordClasses.HiraganaWord;
@@ -95,6 +96,9 @@ public class WordsManager {
                 else {
                     word[0] = katakanaSyllable.getKatakana();
                     word[1] = katakanaSyllable.getRomaji();
+
+                    Toast toast = Toast.makeText(activity.getApplicationContext(), word[0], Toast.LENGTH_LONG); // initiate the Toast with context, message and duration for the Toast
+                    toast.show();
                 }
             }
 

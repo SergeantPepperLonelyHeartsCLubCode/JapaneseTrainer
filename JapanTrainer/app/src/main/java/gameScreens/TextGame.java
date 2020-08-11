@@ -10,6 +10,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.japantrainer.R;
 
@@ -60,7 +61,9 @@ public class TextGame extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openNextScreen();
+                Toast toast = Toast.makeText(getApplicationContext(), answer, Toast.LENGTH_LONG); // initiate the Toast with context, message and duration for the Toast
+                toast.show(); // display the Toast
+                //openNextScreen();
             }
         });
 

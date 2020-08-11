@@ -53,13 +53,10 @@ public class ChoiceManager {
         global.letter = japanese;
     }
 
-    public String getGame(){
-        return global.game;
-    }
+
 
 
     // Checks for games
-    // Checks for fonts
     public boolean isSyllables(){
         if (global.game.equals(syllables))
             return true;
@@ -95,13 +92,13 @@ public class ChoiceManager {
 
     // Checks for letters
     public boolean isRomaji(){
-        if (global.font.equals(romaji))
+        if (global.letter.equals(romaji))
             return true;
         else
             return false;
     }
     public boolean isJapanese(){
-        if (global.font.equals(japanese))
+        if (global.letter.equals(japanese))
             return true;
         else
             return false;
