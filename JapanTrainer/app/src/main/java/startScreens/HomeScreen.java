@@ -87,7 +87,7 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
 
         // Setting points from to TextView
         textView = findViewById(R.id.points);
-        //textView.setText(String.valueOf(points.getPoints()));
+        textView.setText(String.valueOf(points.getPoints()));
 
         // Setting up Buttons
         Button syllablesGame = findViewById(R.id.syllablesGame);
@@ -140,7 +140,7 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
         startActivity(intent);
     }
 
-    
+
     private void changeLanguage(String lang) {
         Resources res = getResources();
         // Change locale settings in the app.
