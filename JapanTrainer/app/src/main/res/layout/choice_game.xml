@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context="startScreens.choiceScreens.GameChoice">
 
+
+    <include
+        layout="@layout/homescreen_toolbar"/>
+
     <TextView
         style="?attr/textAppearanceHeadline6"
         android:layout_width="wrap_content"
@@ -44,22 +48,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!--<TextView
-                style="?attr/textAppearanceHeadline6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="10dp"
-                android:text="ネす"
-                android:textSize="80sp"
-                android:textStyle="bold" /> -->
-
             <ImageView
-                android:id="@+id/quiz"
-                android:layout_width="50dp"
-                android:layout_height="27dp"
-
-                android:src="@drawable/quiz_game" />
+                android:id="@+id/text"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:tint="@color/black"
+                android:src="@drawable/text_game"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="15dp"/>
 
             <TextView
                 style="?attr/textAppearanceHeadline6"
@@ -109,15 +105,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                style="?attr/textAppearanceHeadline6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="10dp"
-                android:text="Aa"
-                android:textSize="80sp"
-                android:textStyle="bold" />
+            <ImageView
+                android:id="@+id/quiz"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:tint="@color/black"
+                android:src="@drawable/quiz_game"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="15dp"/>
 
             <TextView
                 style="?attr/textAppearanceHeadline6"
@@ -126,7 +121,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="3dp"
-                android:text="Romaji"
+                android:text="Quiz"
                 android:textColor="@color/colorPrimary" />
 
             <TextView
@@ -135,7 +130,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:maxLines="3"
-                android:text="The asked word will be in Romaji" />
+                android:text="Quiz Game with the answer choice" />
 
         </LinearLayout>
 

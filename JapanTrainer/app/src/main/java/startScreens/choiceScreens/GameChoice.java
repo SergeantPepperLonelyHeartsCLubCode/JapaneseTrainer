@@ -20,7 +20,7 @@ import gameScreens.QuizGame;
 import gameScreens.TextGame;
 import helpClasses.managerClasses.PointsManager;
 
-public class GameChoice extends AppCompatActivity implements View.OnClickListener {
+public class GameChoice extends AppCompatActivity {
 
     private PointsManager points;
     private Toolbar toolbar;
@@ -38,19 +38,21 @@ public class GameChoice extends AppCompatActivity implements View.OnClickListene
         final Button next = findViewById(R.id.next);
         final MaterialCardView text_game = findViewById(R.id.text_game);
         final MaterialCardView quiz_game = findViewById(R.id.quiz_game);
+        // For buttons to go to another screen
+        final Intent intent = new Intent(this, TextGame.class);
+        final Intent intent2 = new Intent(this, QuizGame.class);
 
         // Setting Toolbar
         toolbar = findViewById(R.id.homescreen_toolbar);
         setSupportActionBar(toolbar);
         //Setting up the back button
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Setting points from to TextView
         textView = findViewById(R.id.points);
-        //textView.setText(String.valueOf(points.getPoints()));
+        textView.setText(String.valueOf(points.getPoints()));
 
-        final Intent intent = new Intent(this, TextGame.class);
-        final Intent intent2 = new Intent(this, QuizGame.class);
+
 
         text_game.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) {
@@ -93,28 +95,5 @@ public class GameChoice extends AppCompatActivity implements View.OnClickListene
 
             }
         });
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-
-            case R.id.text_game:
-                // Setting points to 0
-                points.setPointsNull();
-
-                Intent intent = new Intent(this, TextGame.class);
-                startActivity(intent);
-                break;
-
-            case R.id.quiz_game:
-                // Setting points to 0
-                points.setPointsNull();
-
-                intent = new Intent(this, QuizGame.class);
-                startActivity(intent);
-                break;
-
-        }
     }
 }
