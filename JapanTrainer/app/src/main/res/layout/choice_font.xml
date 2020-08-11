@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context="startScreens.choiceScreens.FontChoice">
 
-    <!--<include
-        layout="@layout/homescreen_toolbar"/>-->
+    <include
+        layout="@layout/homescreen_toolbar"/>
 
     <TextView
         style="?attr/textAppearanceHeadline6"
