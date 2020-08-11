@@ -217,79 +217,140 @@ public class WordsManager {
         // IDs of 3 random words
         int[] randomWords = getThreeRandomID(global.current_id);
 
-        // if user wants to train with Katakana font
-        if (font.isKatakana()){
-            // For getting strings
-            KatakanaWord tmp;
 
-            // Romaji Training
-            if (font.isRomaji()){
+        if (font.isSyllables()){
+            // if user wants to train with Katakana font
+            if (font.isKatakana()){
+                // For getting strings
+                KatakanaSyllable tmp;
 
-                tmp = (KatakanaWord) db.getWord(randomWords[0], font.katakana);
-                words[0] = tmp.getKatakana();
-                tmp = (KatakanaWord) db.getWord(randomWords[1], font.katakana);
-                words[1] = tmp.getKatakana();
-                tmp = (KatakanaWord) db.getWord(randomWords[2], font.katakana);
-                words[2] = tmp.getKatakana();
+                // Romaji Training
+                if (font.isRomaji()){
+
+                    tmp = (KatakanaSyllable) db.getSyllable(randomWords[0], font.katakana);
+                    words[0] = tmp.getKatakana();
+                    tmp = (KatakanaSyllable) db.getSyllable(randomWords[1], font.katakana);
+                    words[1] = tmp.getKatakana();
+                    tmp = (KatakanaSyllable) db.getSyllable(randomWords[2], font.katakana);
+                    words[2] = tmp.getKatakana();
+                }
+                // Katakana Training
+                else {
+                    tmp = (KatakanaSyllable) db.getSyllable(randomWords[0], font.katakana);
+                    words[0] = tmp.getRomaji();
+                    tmp = (KatakanaSyllable) db.getSyllable(randomWords[1], font.katakana);
+                    words[1] = tmp.getRomaji();
+                    tmp = (KatakanaSyllable) db.getSyllable(randomWords[2], font.katakana);
+                    words[2] = tmp.getRomaji();
+                }
             }
-            // Katakana Training
+
+            // if user wants to train with Kanji or Hiragana fonts
             else {
-                tmp = (KatakanaWord) db.getWord(randomWords[0], font.katakana);
-                words[0] = tmp.getRomaji();
-                tmp = (KatakanaWord) db.getWord(randomWords[1], font.katakana);
-                words[1] = tmp.getRomaji();
-                tmp = (KatakanaWord) db.getWord(randomWords[2], font.katakana);
-                words[2] = tmp.getRomaji();
-            }
-        }
 
-        // if user wants to train with Kanji or Hiragana fonts
+                // For getting strings
+                HiraganaSyllable tmp;
+
+                // Hiragana
+                if (font.isHiragana()){
+                    // Romaji Training
+                    if (font.isRomaji()){
+                        tmp = (HiraganaSyllable) db.getSyllable(randomWords[0], font.hiragana);
+                        words[0] = tmp.getHiragana();
+                        tmp = (HiraganaSyllable) db.getSyllable(randomWords[1], font.hiragana);
+                        words[1] = tmp.getHiragana();
+                        tmp = (HiraganaSyllable) db.getSyllable(randomWords[2], font.hiragana);
+                        words[2] = tmp.getHiragana();
+                    }
+                    // Hiragana Training
+                    else {
+                        tmp = (HiraganaSyllable) db.getSyllable(randomWords[0], font.hiragana);
+                        words[0] = tmp.getRomaji();
+                        tmp = (HiraganaSyllable) db.getSyllable(randomWords[1], font.hiragana);
+                        words[1] = tmp.getRomaji();
+                        tmp = (HiraganaSyllable) db.getSyllable(randomWords[2], font.hiragana);
+                        words[2] = tmp.getRomaji();
+                    }
+                }
+            }
+        } // End of if syllables
+
         else {
 
-            // For getting strings
-            HiraganaWord tmp;
+            // if user wants to train with Katakana font
+            if (font.isKatakana()) {
+                // For getting strings
+                KatakanaWord tmp;
 
-            // Hiragana
-            if (font.isHiragana()){
                 // Romaji Training
-                if (font.isRomaji()){
-                    tmp = (HiraganaWord) db.getWord(randomWords[0], font.hiragana);
-                    words[0] = tmp.getHiragana();
-                    tmp = (HiraganaWord) db.getWord(randomWords[1], font.hiragana);
-                    words[1] = tmp.getHiragana();
-                    tmp = (HiraganaWord) db.getWord(randomWords[2], font.hiragana);
-                    words[2] = tmp.getHiragana();
+                if (font.isRomaji()) {
+
+                    tmp = (KatakanaWord) db.getWord(randomWords[0], font.katakana);
+                    words[0] = tmp.getKatakana();
+                    tmp = (KatakanaWord) db.getWord(randomWords[1], font.katakana);
+                    words[1] = tmp.getKatakana();
+                    tmp = (KatakanaWord) db.getWord(randomWords[2], font.katakana);
+                    words[2] = tmp.getKatakana();
                 }
-                // Hiragana Training
+                // Katakana Training
                 else {
-                    tmp = (HiraganaWord) db.getWord(randomWords[0], font.hiragana);
+                    tmp = (KatakanaWord) db.getWord(randomWords[0], font.katakana);
                     words[0] = tmp.getRomaji();
-                    tmp = (HiraganaWord) db.getWord(randomWords[1], font.hiragana);
+                    tmp = (KatakanaWord) db.getWord(randomWords[1], font.katakana);
                     words[1] = tmp.getRomaji();
-                    tmp = (HiraganaWord) db.getWord(randomWords[2], font.hiragana);
+                    tmp = (KatakanaWord) db.getWord(randomWords[2], font.katakana);
                     words[2] = tmp.getRomaji();
                 }
             }
 
-            // Kanji
+            // if user wants to train with Kanji or Hiragana fonts
             else {
-                // Romaji Training
-                if (font.isRomaji()){
-                    tmp = (HiraganaWord) db.getWord(randomWords[0], font.hiragana);
-                    words[0] = tmp.getKanji();
-                    tmp = (HiraganaWord) db.getWord(randomWords[1], font.hiragana);
-                    words[1] = tmp.getKanji();
-                    tmp = (HiraganaWord) db.getWord(randomWords[2], font.hiragana);
-                    words[2] = tmp.getKanji();
+
+                // For getting strings
+                HiraganaWord tmp;
+
+                // Hiragana
+                if (font.isHiragana()) {
+                    // Romaji Training
+                    if (font.isRomaji()) {
+                        tmp = (HiraganaWord) db.getWord(randomWords[0], font.hiragana);
+                        words[0] = tmp.getHiragana();
+                        tmp = (HiraganaWord) db.getWord(randomWords[1], font.hiragana);
+                        words[1] = tmp.getHiragana();
+                        tmp = (HiraganaWord) db.getWord(randomWords[2], font.hiragana);
+                        words[2] = tmp.getHiragana();
+                    }
+                    // Hiragana Training
+                    else {
+                        tmp = (HiraganaWord) db.getWord(randomWords[0], font.hiragana);
+                        words[0] = tmp.getRomaji();
+                        tmp = (HiraganaWord) db.getWord(randomWords[1], font.hiragana);
+                        words[1] = tmp.getRomaji();
+                        tmp = (HiraganaWord) db.getWord(randomWords[2], font.hiragana);
+                        words[2] = tmp.getRomaji();
+                    }
                 }
-                // Kanji Training
+
+                // Kanji
                 else {
-                    tmp = (HiraganaWord) db.getWord(randomWords[0], font.hiragana);
-                    words[0] = tmp.getRomaji();
-                    tmp = (HiraganaWord) db.getWord(randomWords[1], font.hiragana);
-                    words[1] = tmp.getRomaji();
-                    tmp = (HiraganaWord) db.getWord(randomWords[2], font.hiragana);
-                    words[2] = tmp.getRomaji();
+                    // Romaji Training
+                    if (font.isRomaji()) {
+                        tmp = (HiraganaWord) db.getWord(randomWords[0], font.hiragana);
+                        words[0] = tmp.getKanji();
+                        tmp = (HiraganaWord) db.getWord(randomWords[1], font.hiragana);
+                        words[1] = tmp.getKanji();
+                        tmp = (HiraganaWord) db.getWord(randomWords[2], font.hiragana);
+                        words[2] = tmp.getKanji();
+                    }
+                    // Kanji Training
+                    else {
+                        tmp = (HiraganaWord) db.getWord(randomWords[0], font.hiragana);
+                        words[0] = tmp.getRomaji();
+                        tmp = (HiraganaWord) db.getWord(randomWords[1], font.hiragana);
+                        words[1] = tmp.getRomaji();
+                        tmp = (HiraganaWord) db.getWord(randomWords[2], font.hiragana);
+                        words[2] = tmp.getRomaji();
+                    }
                 }
             }
         }
