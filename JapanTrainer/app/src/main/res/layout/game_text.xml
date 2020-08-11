@@ -7,6 +7,9 @@
     tools:context="gameScreens.TextGame"
     >
 
+    <include
+        layout="@layout/homescreen_toolbar"/>
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="290dp"

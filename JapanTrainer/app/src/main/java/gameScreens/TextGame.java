@@ -1,6 +1,7 @@
 package gameScreens;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,20 +11,17 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.japantrainer.R;
 
-import helpClasses.managerClasses.GlobalVariables;
 import helpClasses.managerClasses.PointsManager;
 import helpClasses.managerClasses.WordsManager;
 
 public class TextGame extends AppCompatActivity {
 
-    // For showing and changing points
     private PointsManager points;
-    // For getting the word
-    WordsManager wordsManager;
+    private WordsManager wordsManager;
+    private Toolbar toolbar;
 
     // Strings for question (for TextView) and answer (for Edit)
     private String question;
@@ -42,6 +40,16 @@ public class TextGame extends AppCompatActivity {
         // Initialization
         points = new PointsManager(this);
         wordsManager = new WordsManager(this);
+
+        // Setting Toolbar
+        toolbar = findViewById(R.id.homescreen_toolbar);
+        setSupportActionBar(toolbar);
+        //Setting up the back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // Setting points from to TextView
+        textView = findViewById(R.id.points);
+        textView.setText(String.valueOf(points.getPoints()));
 
         // Getting the word
         String[] tmp = wordsManager.getRightAnswer();
