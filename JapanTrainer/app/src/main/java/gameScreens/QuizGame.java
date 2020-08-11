@@ -63,10 +63,10 @@ public class QuizGame extends AppCompatActivity {
         textView.setText(String.valueOf(points.getPoints()));
 
         // Getting all the words
-        String[] tmp = wordsManager.getWord();
+        String[] tmp = wordsManager.getRightAnswer();
         answer = tmp[0];
         question = tmp[1];
-        otherWords = wordsManager.getThreeWords();
+        otherWords = wordsManager.getWrongAnswers();
 
         // Setting the word to the textview
         textView = findViewById(R.id.question);

@@ -44,7 +44,7 @@ public class TextGame extends AppCompatActivity {
         wordsManager = new WordsManager(this);
 
         // Getting the word
-        String[] tmp = wordsManager.getWord();
+        String[] tmp = wordsManager.getRightAnswer();
         question = tmp[0];
         answer = tmp[1];
 
@@ -61,9 +61,7 @@ public class TextGame extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), answer, Toast.LENGTH_LONG); // initiate the Toast with context, message and duration for the Toast
-                toast.show(); // display the Toast
-                //openNextScreen();
+                openNextScreen();
             }
         });
 
