@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"  android:layout_height="wrap_content" android:layout_width="wrap_content">
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content">
 
-    <solid android:color="@color/colorPrimary"/>
+    <solid android:color="@color/white"/>
 
     <stroke android:width="2dp"
-        android:color="@color/colorPrimary"/>
+        android:color="@color/white"/>
 
     <corners
-        android:bottomLeftRadius="300dp"
-        android:bottomRightRadius="300dp"
-        android:topLeftRadius="300dp"
-        android:topRightRadius="300dp" />
+        android:bottomLeftRadius="20dp"
+        android:bottomRightRadius="20dp"
+        android:topLeftRadius="20dp"
+        android:topRightRadius="20dp"
+        />
 </shape>

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.japantrainer.R;
+import com.google.android.material.card.MaterialCardView;
 
 import helpClasses.managerClasses.ChoiceManager;
 import helpClasses.managerClasses.PointsManager;
@@ -30,6 +31,10 @@ public class LetterChoice extends AppCompatActivity implements View.OnClickListe
         choiceManager = new ChoiceManager(this);
         points = new PointsManager(this);
 
+        final Button next = findViewById(R.id.next);
+        final MaterialCardView romaji = findViewById(R.id.romaji);
+        final MaterialCardView japanese = findViewById(R.id.japanese);
+
         // Setting Toolbar
         toolbar = findViewById(R.id.homescreen_toolbar);
         setSupportActionBar(toolbar);
@@ -40,12 +45,38 @@ public class LetterChoice extends AppCompatActivity implements View.OnClickListe
         textView = findViewById(R.id.points);
         textView.setText(String.valueOf(points.getPoints()));
 
-        // Setting the buttons
-        Button romaji = findViewById(R.id.romaji);
-        Button japanese = findViewById(R.id.japanese);
 
-        romaji.setOnClickListener(this);
-        japanese.setOnClickListener(this);
+
+        romaji.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) {
+                if (!romaji.isChecked()){
+                    romaji.toggle();
+                    japanese.setChecked(false);
+                    next.setEnabled(true);
+                    choiceManager.setKatakana();
+                }
+            }
+        });
+
+        japanese.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) {
+                if (!japanese.isChecked()){
+                    japanese.toggle();
+                    romaji.setChecked(false);
+                    next.setEnabled(true);
+                    choiceManager.setHiragana();
+                }
+            }
+        });
+
+        next.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                openGameChoice();
+            }
+        });
     }
 
     @Override

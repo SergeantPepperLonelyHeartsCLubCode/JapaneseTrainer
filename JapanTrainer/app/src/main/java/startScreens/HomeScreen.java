@@ -52,7 +52,7 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run(){
-                /* Create an Intent that will start the Menu-Activity. */
+                // Create an Intent that will start the Menu-Activity.
                 Intent homeIntent = new Intent(HomeScreen.this, HomeScreen.class);
         //https://stackoverflow.com/questions/13397709/android-hide-imageview
                 ImageView imgView = (ImageView)findViewById(R.id.imageView2);

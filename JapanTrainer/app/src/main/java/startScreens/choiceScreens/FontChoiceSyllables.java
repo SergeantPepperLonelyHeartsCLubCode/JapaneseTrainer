@@ -11,12 +11,13 @@ import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.japantrainer.R;
+import com.google.android.material.card.MaterialCardView;
 
 import helpClasses.managerClasses.ChoiceManager;
 import helpClasses.managerClasses.PointsManager;
 import helpClasses.managerClasses.WordsManager;
 
-public class FontChoiceSyllables extends AppCompatActivity implements View.OnClickListener {
+public class FontChoiceSyllables extends AppCompatActivity {
 
     // Variable for stroing font choice
     private ChoiceManager choiceManager;
@@ -37,6 +38,10 @@ public class FontChoiceSyllables extends AppCompatActivity implements View.OnCli
         words = new WordsManager(this);
         points = new PointsManager(this);
 
+        final Button next = findViewById(R.id.next);
+        final MaterialCardView katakana = findViewById(R.id.katakana);
+        final MaterialCardView hiragana = findViewById(R.id.hiragana);
+
         // Setting Toolbar
         toolbar = findViewById(R.id.homescreen_toolbar);
         setSupportActionBar(toolbar);
@@ -48,30 +53,37 @@ public class FontChoiceSyllables extends AppCompatActivity implements View.OnCli
         textView = findViewById(R.id.points);
         textView.setText(String.valueOf(points.getPoints()));
 
-        // Setting up the buttons
-        Button katakana = findViewById(R.id.katakana);
-        Button hiragana = findViewById(R.id.hiragana);
 
-        katakana.setOnClickListener(this);
-        hiragana.setOnClickListener(this);
+        katakana.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) {
+                if (!katakana.isChecked()){
+                    katakana.toggle();
+                    hiragana.setChecked(false);
+                    next.setEnabled(true);
+                    choiceManager.setKatakana();
+                }
+            }
+        });
 
-    }
+        hiragana.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) {
+                if (!hiragana.isChecked()){
+                    hiragana.toggle();
+                    katakana.setChecked(false);
+                    next.setEnabled(true);
+                    choiceManager.setHiragana();
+                }
+            }
+        });
 
-    // Setting font choice
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-
-            case R.id.katakana:
-                choiceManager.setKatakana();
+        next.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
                 openLetterChoice();
-                break;
-
-            case R.id.hiragana:
-                choiceManager.setHiragana();
-                openLetterChoice();
-                break;
-        }
+            }
+        });
     }
 
     // Opens Letter Choice (for Button)
