@@ -1,29 +1,46 @@
 package startScreens.choiceScreens;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.japantrainer.R;
 
 import helpClasses.managerClasses.FontManager;
 import helpClasses.managerClasses.GlobalVariables;
+import helpClasses.managerClasses.PointsManager;
+import helpClasses.managerClasses.WordsManager;
 
 public class LetterChoice extends AppCompatActivity implements View.OnClickListener {
 
-    FontManager font;
-    GlobalVariables global;
+    private FontManager font;
+    private TextView textView;
+    private PointsManager points;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choice_letter);
 
+        // Initialization
         font = new FontManager(this);
-        global = (GlobalVariables) getApplication();
+        points = new PointsManager(this);
+
+        // Setting Toolbar
+        toolbar = findViewById(R.id.homescreen_toolbar);
+        setSupportActionBar(toolbar);
+        //Setting up the back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // Setting points from to TextView
+        textView = findViewById(R.id.points);
+        textView.setText(String.valueOf(points.getPoints()));
 
         Button romaji = findViewById(R.id.romaji);
         Button japanese = findViewById(R.id.japanese);

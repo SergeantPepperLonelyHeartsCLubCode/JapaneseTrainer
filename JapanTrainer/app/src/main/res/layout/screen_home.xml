@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context="startScreens.HomeScreen">
 
+    <include
+        android:id="@+id/include"
+        layout="@layout/homescreen_toolbar" />
+
     <Button
         android:id="@+id/startGame"
         android:layout_width="wrap_content"
@@ -14,38 +18,25 @@
         android:layout_marginTop="461dp"
         android:layout_marginEnd="163dp"
         android:layout_marginBottom="222dp"
-        android:text="Start Game"
+        android:text="@string/go_button"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="381dp"
-        android:layout_height="517dp"
-        android:layout_marginTop="60dp"
-        android:gravity="center"
-        android:text="Second / Home Activity Started"
-        android:textSize="30sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintVertical_bias="0.0" 
+        android:background="@drawable/homescreen_button"/>
 
     <TextView
         android:id="@+id/points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="400dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="130dp"
         android:layout_marginBottom="1000dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -58,5 +49,46 @@
         tools:layout_editor_absoluteY="-288dp"
         android:elevation="10dp"
         />
+
+
+    <ImageView
+        android:id="@+id/germanflag"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="500dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toEndOf="@+id/include"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:srcCompat="@drawable/germanflag" />
+
+    <android.widget.Switch
+        android:id="@+id/Switch"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="500dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintStart_toEndOf="@+id/include"
+
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/languagechange"
+        android:layout_width="250dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="550dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginBottom="50dp"
+        android:text="Language Change"
+        app:layout_constraintBottom_toTopOf="@+id/startGame"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

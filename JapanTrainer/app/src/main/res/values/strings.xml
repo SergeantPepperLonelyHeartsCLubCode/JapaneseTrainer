@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">JapanTRainer</string>
+    <string name="app_name"></string>
+    <string name="japanese_button">Japanese</string>
+    <string name="go_button">Go</string>
+
+
 </resources>

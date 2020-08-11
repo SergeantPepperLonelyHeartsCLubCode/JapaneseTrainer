@@ -94,7 +94,14 @@ public class HomeScreen extends AppCompatActivity {
         //Switch for Changing Language
         Switch sb = findViewById(R.id.Switch);
 
-        if(locale)
+        String CurrentLang = getResources().getConfiguration().locale.getLanguage();
+
+        if(CurrentLang.equals("eng")){
+            sb.setChecked(false);
+        }
+        if(CurrentLang.equals("de")){
+            sb.setChecked(true);
+        }
 
 
         sb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
