@@ -7,7 +7,18 @@
     tools:context="startScreens.HomeScreen">
 
     <include
-        layout="@layout/homescreen_toolbar"/>
+        android:id="@+id/include2"
+        layout="@layout/homescreen_toolbar" />
+
+    <android.widget.Switch
+        android:id="@+id/Switch"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="39dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include2" />
 
     <Button
         android:id="@+id/wordsGame"
@@ -17,7 +28,7 @@
         android:layout_marginTop="461dp"
         android:layout_marginEnd="163dp"
         android:layout_marginBottom="222dp"
-        android:text="Words"
+        android:text="@string/word_button"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +63,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
+   <!-- <ImageView
         android:id="@+id/imageView2"
         android:layout_width="742dp"
         android:layout_height="1178dp"
@@ -62,6 +73,6 @@
         tools:layout_editor_absoluteX="-166dp"
         tools:layout_editor_absoluteY="-288dp"
         android:elevation="10dp"
-        />
+        />  -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
