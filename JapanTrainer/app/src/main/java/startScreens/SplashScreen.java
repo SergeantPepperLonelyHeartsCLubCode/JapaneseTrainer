@@ -20,7 +20,7 @@ import com.example.japantrainer.R;
 public class SplashScreen extends AppCompatActivity {
 
     // Duration of wait
-    private static int SplashTimeOut = 4000;
+    private static int SplashTimeOut = 7000;
 
 
     Animation splashscreen_animation;
