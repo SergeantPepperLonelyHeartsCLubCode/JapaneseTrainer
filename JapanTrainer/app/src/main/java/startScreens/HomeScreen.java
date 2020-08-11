@@ -7,13 +7,17 @@ package startScreens;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
 
@@ -24,6 +28,8 @@ import startScreens.choiceScreens.FontChoice;
 import startScreens.choiceScreens.FontChoiceSyllables;
 
 import com.example.japantrainer.R;
+
+import java.util.Locale;
 
 public class HomeScreen extends AppCompatActivity implements View.OnClickListener {
 
@@ -45,21 +51,31 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
         choiceManager = new ChoiceManager(this);
 
         // Setting up animation
-        homescreen_animation = AnimationUtils.loadAnimation(this,R.anim.homescreen_animation);
-        image = findViewById(R.id.imageView2);
-        image.setAnimation(homescreen_animation);
+        //homescreen_animation = AnimationUtils.loadAnimation(this,R.anim.homescreen_animation);
+        //image = findViewById(R.id.imageView2);
+        //image.setAnimation(homescreen_animation);
 
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run(){
                 // Create an Intent that will start the Menu-Activity.
-                Intent homeIntent = new Intent(HomeScreen.this, HomeScreen.class);
+                //Intent homeIntent = new Intent(HomeScreen.this, HomeScreen.class);
         //https://stackoverflow.com/questions/13397709/android-hide-imageview
-                ImageView imgView = (ImageView)findViewById(R.id.imageView2);
-                imgView .setVisibility(View.GONE);
+                //ImageView imgView = (ImageView)findViewById(R.id.imageView2);
+                //imgView .setVisibility(View.GONE);
             }
         }, 1000);
 
+        //Switch for Changing Language
+        Switch sb = findViewById(R.id.Switch);
+        String CurrentLang = getResources().getConfiguration().locale.getLanguage();
+        // Check for switch
+        if(CurrentLang.equals("eng")){
+            sb.setChecked(false);
+        }
+        if(CurrentLang.equals("de")){
+            sb.setChecked(true);
+        }
 
         // Setting Toolbar
         toolbar = findViewById(R.id.homescreen_toolbar);
@@ -79,6 +95,19 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
 
         syllablesGame.setOnClickListener(this);
         wordsGame.setOnClickListener(this);
+        // Listener for switch
+        sb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    changeLanguage("de");
+                    startActivity(getIntent());
+
+                } else {
+                    changeLanguage("eng");
+                    startActivity(getIntent());
+                }
+            }
+        });
     }
 
     // Setting game choice
@@ -112,8 +141,13 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
     }
 
 
+    private void changeLanguage(String lang) {
+        Resources res = getResources();
+        // Change locale settings in the app.
+        DisplayMetrics dm = res.getDisplayMetrics();
+        android.content.res.Configuration conf = res.getConfiguration();
+        conf.locale = new Locale(lang);
+        res.updateConfiguration(conf, dm);
 
-
-
-
+    }
 }
