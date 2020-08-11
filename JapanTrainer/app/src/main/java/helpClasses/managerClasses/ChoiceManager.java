@@ -8,6 +8,9 @@ public class ChoiceManager {
     Activity activity;
     GlobalVariables global;
 
+    // Final variables for game regimes
+    final static String syllables = "syllables";
+    final static String words = "words";
     // Final variables for fonts
     final static String katakana = "katakana";
     final static String hiragana = "hiragana";
@@ -23,23 +26,51 @@ public class ChoiceManager {
         global = (GlobalVariables) activity.getApplication();
     }
 
+    // Setters for game regimes
+    public void setSyllables(){
+        global.game = syllables;
+    }
+    public void setWords(){
+        global.game = words;
+    }
+
     // Setters for font
     public void setKatakana(){
-        global.font = new String(katakana);
+        global.font = katakana;
     }
     public void setHiragana(){
-        global.font = new String(hiragana);
+        global.font = hiragana;
     }
     public void setKanji(){
-        global.font = new String(kanji);
+        global.font = kanji;
     }
 
     // Setters for letter
     public void setRomaji(){
-        global.letter =  new String(romaji);
+        global.letter =  romaji;
     }
     public void setJapanese(){
-        global.letter = new String(japanese);
+        global.letter = japanese;
+    }
+
+    public String getGame(){
+        return global.game;
+    }
+
+
+    // Checks for games
+    // Checks for fonts
+    public boolean isSyllables(){
+        if (global.game.equals(syllables))
+            return true;
+        else
+            return false;
+    }
+    public boolean isWords(){
+        if (global.game.equals(words))
+            return true;
+        else
+            return false;
     }
 
     // Checks for fonts

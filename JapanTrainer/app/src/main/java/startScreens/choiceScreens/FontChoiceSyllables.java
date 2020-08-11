@@ -16,7 +16,7 @@ import helpClasses.managerClasses.ChoiceManager;
 import helpClasses.managerClasses.PointsManager;
 import helpClasses.managerClasses.WordsManager;
 
-public class FontChoice extends AppCompatActivity implements View.OnClickListener {
+public class FontChoiceSyllables extends AppCompatActivity implements View.OnClickListener {
 
     // Variable for stroing font choice
     private ChoiceManager choiceManager;
@@ -31,7 +31,7 @@ public class FontChoice extends AppCompatActivity implements View.OnClickListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.choice_font);
+        setContentView(R.layout.choice_font_syllables);
         // Initialization
         choiceManager = new ChoiceManager(this);
         words = new WordsManager(this);
@@ -51,11 +51,9 @@ public class FontChoice extends AppCompatActivity implements View.OnClickListene
 
         Button katakana = findViewById(R.id.katakana);
         Button hiragana = findViewById(R.id.hiragana);
-        Button kanji = findViewById(R.id.kanji);
 
         katakana.setOnClickListener(this);
         hiragana.setOnClickListener(this);
-        kanji.setOnClickListener(this);
 
     }
 
@@ -71,11 +69,6 @@ public class FontChoice extends AppCompatActivity implements View.OnClickListene
 
             case R.id.hiragana:
                 choiceManager.setHiragana();
-                openLetterChoice();
-                break;
-
-            case R.id.kanji:
-                choiceManager.setKanji();
                 openLetterChoice();
                 break;
 

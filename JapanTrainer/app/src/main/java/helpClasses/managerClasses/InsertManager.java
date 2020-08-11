@@ -9,6 +9,8 @@ import com.example.japantrainer.R;
 import java.io.ByteArrayOutputStream;
 
 import helpClasses.DatabaseManager;
+import helpClasses.syllableClasses.HiraganaSyllable;
+import helpClasses.syllableClasses.KatakanaSyllable;
 import helpClasses.wordClasses.HiraganaWord;
 import helpClasses.wordClasses.KatakanaWord;
 
@@ -26,13 +28,38 @@ public class InsertManager {
     public void insertWords(){
         DatabaseManager db = new DatabaseManager(context);
 
-        if (db.isEmpty())
+        db.deleteDB();
+
+        if (db.isEmpty()) {
             words(db);
+            syllables(db);
+        }
+    }
+
+    // Here we have all the syllables
+    public void syllables (DatabaseManager db){
+
+        // Katakana Section
+        db.insertSyllable(new KatakanaSyllable("ア","a"));
+        db.insertSyllable(new KatakanaSyllable("カ","ka"));
+        db.insertSyllable(new KatakanaSyllable("ク","ku"));
+        db.insertSyllable(new KatakanaSyllable("セ","se"));
+        db.insertSyllable(new KatakanaSyllable("ネ","ne"));
+
+        // Hiragana Section
+        db.insertSyllable(new HiraganaSyllable("あ","a"));
+        db.insertSyllable(new HiraganaSyllable("す","su"));
+        db.insertSyllable(new HiraganaSyllable("て","te"));
+        db.insertSyllable(new HiraganaSyllable("た","ta"));
+        db.insertSyllable(new HiraganaSyllable("こ","ko"));
+
+
+
     }
 
 
     // Here we have all the words
-    public void words(DatabaseManager db){
+    private void words(DatabaseManager db){
         // Variables to store pictures in DB
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         Bitmap bitmap;
