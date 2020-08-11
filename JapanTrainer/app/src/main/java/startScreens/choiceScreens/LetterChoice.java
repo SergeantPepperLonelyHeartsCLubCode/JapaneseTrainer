@@ -16,7 +16,7 @@ import helpClasses.managerClasses.PointsManager;
 
 public class LetterChoice extends AppCompatActivity implements View.OnClickListener {
 
-    private ChoiceManager font;
+    private ChoiceManager choiceManager;
     private TextView textView;
     private PointsManager points;
     private Toolbar toolbar;
@@ -27,7 +27,7 @@ public class LetterChoice extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.choice_letter);
 
         // Initialization
-        font = new ChoiceManager(this);
+        choiceManager = new ChoiceManager(this);
         points = new PointsManager(this);
 
         // Setting Toolbar
@@ -40,6 +40,7 @@ public class LetterChoice extends AppCompatActivity implements View.OnClickListe
         textView = findViewById(R.id.points);
         textView.setText(String.valueOf(points.getPoints()));
 
+        // Setting the buttons
         Button romaji = findViewById(R.id.romaji);
         Button japanese = findViewById(R.id.japanese);
 
@@ -52,12 +53,12 @@ public class LetterChoice extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
 
             case R.id.romaji:
-                font.setRomaji();
+                choiceManager.setRomaji();
                 openGameChoice();
                 break;
 
             case R.id.japanese:
-                font.setJapanese();
+                choiceManager.setJapanese();
                 openGameChoice();
                 break;
 

@@ -44,11 +44,11 @@ public class FontChoice extends AppCompatActivity implements View.OnClickListene
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        // Setting points from to TextView
+        // Setting points to the TextView
         textView = findViewById(R.id.points);
         textView.setText(String.valueOf(points.getPoints()));
 
-
+        // Setting up the buttons
         Button katakana = findViewById(R.id.katakana);
         Button hiragana = findViewById(R.id.hiragana);
         Button kanji = findViewById(R.id.kanji);

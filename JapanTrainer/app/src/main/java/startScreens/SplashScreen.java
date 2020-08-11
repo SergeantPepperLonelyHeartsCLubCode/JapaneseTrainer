@@ -23,20 +23,20 @@ public class SplashScreen extends AppCompatActivity {
     private static int SplashTimeOut = 4000;
 
 
-    Animation splashscreen_animation;
-    ImageView image;
+    private Animation splashscreen_animation;
+    private ImageView image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.screen_splash);
 
-
+        // Animation
         //https://www.youtube.com/watch?v=cts9Ou0IQ3U
         //https://www.stickpng.com/img/miscellaneous/shapes/red-circle
 
-        splashscreen_animation= AnimationUtils.loadAnimation(this,R.anim.splashscreen_animation);
-        image=findViewById(R.id.imageView);
+        splashscreen_animation = AnimationUtils.loadAnimation(this,R.anim.splashscreen_animation);
+        image = findViewById(R.id.imageView);
         image.setAnimation(splashscreen_animation);
 
         /* New Handler to start the Menu-Activity
@@ -44,12 +44,7 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run(){
-                /* Create an Intent that will start the Menu-Activity. */
                 Intent homeIntent = new Intent(SplashScreen.this, HomeScreen.class);
-
-
-
-
                 startActivity(homeIntent);
                 finish();
             }

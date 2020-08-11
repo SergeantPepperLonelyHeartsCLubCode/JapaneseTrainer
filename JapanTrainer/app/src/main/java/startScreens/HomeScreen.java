@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-// Import for the animation 
 import android.os.Handler;
 import android.view.View;
 import android.view.animation.Animation;
@@ -16,8 +15,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.appcompat.widget.Toolbar;
 
 import helpClasses.managerClasses.ChoiceManager;
@@ -48,8 +45,8 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
         choiceManager = new ChoiceManager(this);
 
         // Setting up animation
-        homescreen_animation= AnimationUtils.loadAnimation(this,R.anim.homescreen_animation);
-        image=findViewById(R.id.imageView2);
+        homescreen_animation = AnimationUtils.loadAnimation(this,R.anim.homescreen_animation);
+        image = findViewById(R.id.imageView2);
         image.setAnimation(homescreen_animation);
 
         new Handler().postDelayed(new Runnable(){
@@ -76,6 +73,7 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
         textView = findViewById(R.id.points);
         textView.setText(String.valueOf(points.getPoints()));
 
+        // Setting up Buttons
         Button syllablesGame = findViewById(R.id.syllablesGame);
         Button wordsGame = findViewById(R.id.wordsGame);
 

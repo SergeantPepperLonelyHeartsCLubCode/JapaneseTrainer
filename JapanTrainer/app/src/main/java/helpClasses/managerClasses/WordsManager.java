@@ -4,7 +4,6 @@
 package helpClasses.managerClasses;
 
 import android.app.Activity;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,12 +19,12 @@ public class WordsManager {
     // For initilialization of GlobalVariables
     Activity activity;
     GlobalVariables global;
-    ChoiceManager font;
+    ChoiceManager choiceManager;
 
     public WordsManager(Activity activity){
         this.activity = activity;
         global = (GlobalVariables) activity.getApplication();
-        font = new ChoiceManager(activity);
+        choiceManager = new ChoiceManager(activity);
     }
 
     // Get IDs of all the words in the DB
@@ -35,9 +34,9 @@ public class WordsManager {
         DatabaseManager db = new DatabaseManager(activity);
 
         // If we have syllables
-        if (font.isSyllables()){
-            if (font.isKatakana()){
-                global.id_permanent = db.getAllIdSyllable(font.katakana);
+        if (choiceManager.isSyllables()){
+            if (choiceManager.isKatakana()){
+                global.id_permanent = db.getAllIdSyllable(choiceManager.katakana);
 
                 for (Integer tmp : global.id_permanent)
                 {
@@ -45,7 +44,7 @@ public class WordsManager {
                 }
             }
             else {
-                global.id_permanent = db.getAllIdSyllable(font.hiragana);
+                global.id_permanent = db.getAllIdSyllable(choiceManager.hiragana);
 
                 for (Integer tmp : global.id_permanent)
                 {
@@ -56,14 +55,14 @@ public class WordsManager {
         // If we have words
         else {
 
-            if (font.isKatakana()) {
-                global.id_permanent = db.getAllId(font.katakana);
+            if (choiceManager.isKatakana()) {
+                global.id_permanent = db.getAllId(choiceManager.katakana);
 
                 for (Integer tmp : global.id_permanent) {
                     global.id_tmp.add(tmp);
                 }
             } else {
-                global.id_permanent = db.getAllId(font.hiragana);
+                global.id_permanent = db.getAllId(choiceManager.hiragana);
 
                 for (Integer tmp : global.id_permanent) {
                     global.id_tmp.add(tmp);
@@ -77,7 +76,7 @@ public class WordsManager {
     public String[] getRightAnswer(){
 
         // if game mode sillables
-        if (font.isSyllables()){
+        if (choiceManager.isSyllables()){
             return getSyllable();
         }
         else {
@@ -92,14 +91,14 @@ public class WordsManager {
         String[] syllable = new String[2];
 
         // if user wants to train with Katakana font
-        if (font.isKatakana()) {
+        if (choiceManager.isKatakana()) {
 
             KatakanaSyllable katakanaSyllable;
             global.current_id = getID();
-            katakanaSyllable = (KatakanaSyllable) db.getSyllable(global.current_id, font.katakana);
+            katakanaSyllable = (KatakanaSyllable) db.getSyllable(global.current_id, choiceManager.katakana);
 
             // Romaji Training
-            if (font.isRomaji()) {
+            if (choiceManager.isRomaji()) {
                 syllable[0] = katakanaSyllable.getRomaji();
                 syllable[1] = katakanaSyllable.getKatakana();
             }
@@ -114,12 +113,12 @@ public class WordsManager {
         else {
             HiraganaSyllable hiraganaSyllable;
             global.current_id = getID();
-            hiraganaSyllable = (HiraganaSyllable) db.getSyllable(global.current_id, font.hiragana);
+            hiraganaSyllable = (HiraganaSyllable) db.getSyllable(global.current_id, choiceManager.hiragana);
 
             // Hiragana
-            if (font.isHiragana()) {
+            if (choiceManager.isHiragana()) {
                 // Romaji Training
-                if (font.isRomaji()) {
+                if (choiceManager.isRomaji()) {
                     syllable[0] = hiraganaSyllable.getRomaji();
                     syllable[1] = hiraganaSyllable.getHiragana();
                 }
@@ -140,13 +139,13 @@ public class WordsManager {
         String[] word = new String[2];
 
         // if user wants to train with Katakana font
-        if (font.isKatakana()) {
+        if (choiceManager.isKatakana()) {
             KatakanaWord katakanaWord;
             global.current_id = getID();
-            katakanaWord = (KatakanaWord) db.getWord(global.current_id, font.katakana);
+            katakanaWord = (KatakanaWord) db.getWord(global.current_id, choiceManager.katakana);
 
             // Romaji Training
-            if (font.isRomaji()) {
+            if (choiceManager.isRomaji()) {
                 word[0] = katakanaWord.getRomaji();
                 word[1] = katakanaWord.getKatakana();
             }
@@ -161,12 +160,12 @@ public class WordsManager {
         else {
             HiraganaWord hiraganaWord;
             global.current_id = getID();
-            hiraganaWord = (HiraganaWord) db.getWord(global.current_id, font.hiragana);
+            hiraganaWord = (HiraganaWord) db.getWord(global.current_id, choiceManager.hiragana);
 
             // Hiragana
-            if (font.isHiragana()) {
+            if (choiceManager.isHiragana()) {
                 // Romaji Training
-                if (font.isRomaji()) {
+                if (choiceManager.isRomaji()) {
                     word[0] = hiraganaWord.getRomaji();
                     word[1] = hiraganaWord.getHiragana();
                 }
@@ -180,7 +179,7 @@ public class WordsManager {
             // Kanji
             else {
                 // Romaji Training
-                if (font.isRomaji()) {
+                if (choiceManager.isRomaji()) {
                     word[0] = hiraganaWord.getRomaji();
                     word[1] = hiraganaWord.getKanji();
                 }
@@ -225,7 +224,7 @@ public class WordsManager {
     // Used in QuizGame
     public String[] getWrongAnswers(){
 
-        if (font.isSyllables()) {
+        if (choiceManager.isSyllables()) {
             return getThreeSyllables();
         }
         else {
@@ -242,27 +241,27 @@ public class WordsManager {
 
 
         // if user wants to train with Katakana font
-        if (font.isKatakana()){
+        if (choiceManager.isKatakana()){
             // For getting strings
             KatakanaSyllable tmp;
 
             // Romaji Training
-            if (font.isRomaji()){
+            if (choiceManager.isRomaji()){
 
-                tmp = (KatakanaSyllable) db.getSyllable(randomSyllables[0], font.katakana);
+                tmp = (KatakanaSyllable) db.getSyllable(randomSyllables[0], choiceManager.katakana);
                 syllables[0] = tmp.getKatakana();
-                tmp = (KatakanaSyllable) db.getSyllable(randomSyllables[1], font.katakana);
+                tmp = (KatakanaSyllable) db.getSyllable(randomSyllables[1], choiceManager.katakana);
                 syllables[1] = tmp.getKatakana();
-                tmp = (KatakanaSyllable) db.getSyllable(randomSyllables[2], font.katakana);
+                tmp = (KatakanaSyllable) db.getSyllable(randomSyllables[2], choiceManager.katakana);
                 syllables[2] = tmp.getKatakana();
             }
                 // Katakana Training
             else {
-                tmp = (KatakanaSyllable) db.getSyllable(randomSyllables[0], font.katakana);
+                tmp = (KatakanaSyllable) db.getSyllable(randomSyllables[0], choiceManager.katakana);
                 syllables[0] = tmp.getRomaji();
-                tmp = (KatakanaSyllable) db.getSyllable(randomSyllables[1], font.katakana);
+                tmp = (KatakanaSyllable) db.getSyllable(randomSyllables[1], choiceManager.katakana);
                 syllables[1] = tmp.getRomaji();
-                tmp = (KatakanaSyllable) db.getSyllable(randomSyllables[2], font.katakana);
+                tmp = (KatakanaSyllable) db.getSyllable(randomSyllables[2], choiceManager.katakana);
                 syllables[2] = tmp.getRomaji();
                 }
             }
@@ -274,21 +273,21 @@ public class WordsManager {
             HiraganaSyllable tmp;
 
             // Romaji Training
-            if (font.isRomaji()){
-                tmp = (HiraganaSyllable) db.getSyllable(randomSyllables[0], font.hiragana);
+            if (choiceManager.isRomaji()){
+                tmp = (HiraganaSyllable) db.getSyllable(randomSyllables[0], choiceManager.hiragana);
                 syllables[0] = tmp.getHiragana();
-                tmp = (HiraganaSyllable) db.getSyllable(randomSyllables[1], font.hiragana);
+                tmp = (HiraganaSyllable) db.getSyllable(randomSyllables[1], choiceManager.hiragana);
                 syllables[1] = tmp.getHiragana();
-                tmp = (HiraganaSyllable) db.getSyllable(randomSyllables[2], font.hiragana);
+                tmp = (HiraganaSyllable) db.getSyllable(randomSyllables[2], choiceManager.hiragana);
                 syllables[2] = tmp.getHiragana();
             }
             // Japanese Training
             else {
-                tmp = (HiraganaSyllable) db.getSyllable(randomSyllables[0], font.hiragana);
+                tmp = (HiraganaSyllable) db.getSyllable(randomSyllables[0], choiceManager.hiragana);
                 syllables[0] = tmp.getRomaji();
-                tmp = (HiraganaSyllable) db.getSyllable(randomSyllables[1], font.hiragana);
+                tmp = (HiraganaSyllable) db.getSyllable(randomSyllables[1], choiceManager.hiragana);
                 syllables[1] = tmp.getRomaji();
-                tmp = (HiraganaSyllable) db.getSyllable(randomSyllables[2], font.hiragana);
+                tmp = (HiraganaSyllable) db.getSyllable(randomSyllables[2], choiceManager.hiragana);
                 syllables[2] = tmp.getRomaji();
             }
             }
@@ -304,27 +303,27 @@ public class WordsManager {
         int[] randomWords = getThreeRandomID(global.current_id);
 
         // if user wants to train with Katakana font
-        if (font.isKatakana()) {
+        if (choiceManager.isKatakana()) {
             // For getting strings
             KatakanaWord tmp;
 
             // Romaji Training
-            if (font.isRomaji()) {
+            if (choiceManager.isRomaji()) {
 
-                tmp = (KatakanaWord) db.getWord(randomWords[0], font.katakana);
+                tmp = (KatakanaWord) db.getWord(randomWords[0], choiceManager.katakana);
                 words[0] = tmp.getKatakana();
-                tmp = (KatakanaWord) db.getWord(randomWords[1], font.katakana);
+                tmp = (KatakanaWord) db.getWord(randomWords[1], choiceManager.katakana);
                 words[1] = tmp.getKatakana();
-                tmp = (KatakanaWord) db.getWord(randomWords[2], font.katakana);
+                tmp = (KatakanaWord) db.getWord(randomWords[2], choiceManager.katakana);
                 words[2] = tmp.getKatakana();
             }
             // Katakana Training
             else {
-                tmp = (KatakanaWord) db.getWord(randomWords[0], font.katakana);
+                tmp = (KatakanaWord) db.getWord(randomWords[0], choiceManager.katakana);
                 words[0] = tmp.getRomaji();
-                tmp = (KatakanaWord) db.getWord(randomWords[1], font.katakana);
+                tmp = (KatakanaWord) db.getWord(randomWords[1], choiceManager.katakana);
                 words[1] = tmp.getRomaji();
-                tmp = (KatakanaWord) db.getWord(randomWords[2], font.katakana);
+                tmp = (KatakanaWord) db.getWord(randomWords[2], choiceManager.katakana);
                 words[2] = tmp.getRomaji();
             }
         }
@@ -336,23 +335,23 @@ public class WordsManager {
             HiraganaWord tmp;
 
             // Hiragana
-            if (font.isHiragana()) {
+            if (choiceManager.isHiragana()) {
                 // Romaji Training
-                if (font.isJapanese()) {
-                    tmp = (HiraganaWord) db.getWord(randomWords[0], font.hiragana);
+                if (choiceManager.isJapanese()) {
+                    tmp = (HiraganaWord) db.getWord(randomWords[0], choiceManager.hiragana);
                     words[0] = tmp.getHiragana();
-                    tmp = (HiraganaWord) db.getWord(randomWords[1], font.hiragana);
+                    tmp = (HiraganaWord) db.getWord(randomWords[1], choiceManager.hiragana);
                     words[1] = tmp.getHiragana();
-                    tmp = (HiraganaWord) db.getWord(randomWords[2], font.hiragana);
+                    tmp = (HiraganaWord) db.getWord(randomWords[2], choiceManager.hiragana);
                     words[2] = tmp.getHiragana();
                 }
                 // Hiragana Training
                 else {
-                    tmp = (HiraganaWord) db.getWord(randomWords[0], font.hiragana);
+                    tmp = (HiraganaWord) db.getWord(randomWords[0], choiceManager.hiragana);
                     words[0] = tmp.getRomaji();
-                    tmp = (HiraganaWord) db.getWord(randomWords[1], font.hiragana);
+                    tmp = (HiraganaWord) db.getWord(randomWords[1], choiceManager.hiragana);
                     words[1] = tmp.getRomaji();
-                    tmp = (HiraganaWord) db.getWord(randomWords[2], font.hiragana);
+                    tmp = (HiraganaWord) db.getWord(randomWords[2], choiceManager.hiragana);
                     words[2] = tmp.getRomaji();
                 }
             }
@@ -360,21 +359,21 @@ public class WordsManager {
             // Kanji
             else {
                 // Romaji Training
-                if (font.isRomaji()) {
-                    tmp = (HiraganaWord) db.getWord(randomWords[0], font.hiragana);
+                if (choiceManager.isRomaji()) {
+                    tmp = (HiraganaWord) db.getWord(randomWords[0], choiceManager.hiragana);
                     words[0] = tmp.getKanji();
-                    tmp = (HiraganaWord) db.getWord(randomWords[1], font.hiragana);
+                    tmp = (HiraganaWord) db.getWord(randomWords[1], choiceManager.hiragana);
                     words[1] = tmp.getKanji();
-                    tmp = (HiraganaWord) db.getWord(randomWords[2], font.hiragana);
+                    tmp = (HiraganaWord) db.getWord(randomWords[2], choiceManager.hiragana);
                     words[2] = tmp.getKanji();
                 }
                 // Kanji Training
                 else {
-                    tmp = (HiraganaWord) db.getWord(randomWords[0], font.hiragana);
+                    tmp = (HiraganaWord) db.getWord(randomWords[0], choiceManager.hiragana);
                     words[0] = tmp.getRomaji();
-                    tmp = (HiraganaWord) db.getWord(randomWords[1], font.hiragana);
+                    tmp = (HiraganaWord) db.getWord(randomWords[1], choiceManager.hiragana);
                     words[1] = tmp.getRomaji();
-                    tmp = (HiraganaWord) db.getWord(randomWords[2], font.hiragana);
+                    tmp = (HiraganaWord) db.getWord(randomWords[2], choiceManager.hiragana);
                     words[2] = tmp.getRomaji();
                 }
             }

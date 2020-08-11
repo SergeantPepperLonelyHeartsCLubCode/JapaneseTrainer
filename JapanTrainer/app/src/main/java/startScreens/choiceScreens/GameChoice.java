@@ -43,6 +43,7 @@ public class GameChoice extends AppCompatActivity implements View.OnClickListene
         textView = findViewById(R.id.points);
         textView.setText(String.valueOf(points.getPoints()));
 
+        // Setting the buttons
         Button text_game = findViewById(R.id.text_game);
         Button quiz_game = findViewById(R.id.quiz_game);
 

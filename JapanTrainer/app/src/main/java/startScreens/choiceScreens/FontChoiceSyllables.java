@@ -48,7 +48,7 @@ public class FontChoiceSyllables extends AppCompatActivity implements View.OnCli
         textView = findViewById(R.id.points);
         textView.setText(String.valueOf(points.getPoints()));
 
-
+        // Setting up the buttons
         Button katakana = findViewById(R.id.katakana);
         Button hiragana = findViewById(R.id.hiragana);
 
@@ -71,7 +71,6 @@ public class FontChoiceSyllables extends AppCompatActivity implements View.OnCli
                 choiceManager.setHiragana();
                 openLetterChoice();
                 break;
-
         }
     }
 
