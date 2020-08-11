@@ -8,7 +8,6 @@ import com.example.japantrainer.R;
 
 import java.io.ByteArrayOutputStream;
 
-import helpClasses.DatabaseManager;
 import helpClasses.syllableClasses.HiraganaSyllable;
 import helpClasses.syllableClasses.KatakanaSyllable;
 import helpClasses.wordClasses.HiraganaWord;
