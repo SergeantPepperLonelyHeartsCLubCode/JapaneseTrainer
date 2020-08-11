@@ -46,12 +46,12 @@ public class FontChoiceSyllables extends AppCompatActivity {
         toolbar = findViewById(R.id.homescreen_toolbar);
         setSupportActionBar(toolbar);
         //Setting up the back button
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         // Setting points from to TextView
         textView = findViewById(R.id.points);
-        //textView.setText(String.valueOf(points.getPoints()));
+        textView.setText(String.valueOf(points.getPoints()));
 
 
         katakana.setOnClickListener(new View.OnClickListener() {

@@ -7,6 +7,9 @@
     android:id="@+id/include"
     tools:context="startScreens.choiceScreens.FontChoiceSyllables">
 
+    <include
+        layout="@layout/homescreen_toolbar"/>
+
 
     <TextView
         style="?attr/textAppearanceHeadline6"
