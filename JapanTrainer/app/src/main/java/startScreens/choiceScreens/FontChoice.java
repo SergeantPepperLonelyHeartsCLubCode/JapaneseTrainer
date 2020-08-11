@@ -11,12 +11,13 @@ import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.japantrainer.R;
+import com.google.android.material.card.MaterialCardView;
 
 import helpClasses.managerClasses.ChoiceManager;
 import helpClasses.managerClasses.PointsManager;
 import helpClasses.managerClasses.WordsManager;
 
-public class FontChoice extends AppCompatActivity implements View.OnClickListener {
+public class FontChoice extends AppCompatActivity {
 
     // Variable for stroing font choice
     private ChoiceManager choiceManager;
@@ -32,10 +33,16 @@ public class FontChoice extends AppCompatActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choice_font);
+
         // Initialization
         choiceManager = new ChoiceManager(this);
         words = new WordsManager(this);
         points = new PointsManager(this);
+
+        final Button next = findViewById(R.id.next);
+        final MaterialCardView katakana = findViewById(R.id.katakana);
+        final MaterialCardView hiragana = findViewById(R.id.hiragana);
+        final MaterialCardView kanji = findViewById(R.id.kanji);
 
         // Setting Toolbar
         toolbar = findViewById(R.id.homescreen_toolbar);
@@ -43,43 +50,54 @@ public class FontChoice extends AppCompatActivity implements View.OnClickListene
         //Setting up the back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         // Setting points to the TextView
         textView = findViewById(R.id.points);
         textView.setText(String.valueOf(points.getPoints()));
 
-        // Setting up the buttons
-        Button katakana = findViewById(R.id.katakana);
-        Button hiragana = findViewById(R.id.hiragana);
-        Button kanji = findViewById(R.id.kanji);
+        katakana.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) {
+                if (!katakana.isChecked()){
+                    katakana.toggle();
+                    hiragana.setChecked(false);
+                    kanji.setChecked(false);
+                    next.setEnabled(true);
+                    choiceManager.setKatakana();
+                }
+            }
+        });
 
-        katakana.setOnClickListener(this);
-        hiragana.setOnClickListener(this);
-        kanji.setOnClickListener(this);
+        hiragana.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) {
+                if (!hiragana.isChecked()){
+                    hiragana.toggle();
+                    katakana.setChecked(false);
+                    kanji.setChecked(false);
+                    next.setEnabled(true);
+                    choiceManager.setHiragana();
+                }
+            }
+        });
 
-    }
+        kanji.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) {
+                if (!kanji.isChecked()){
+                    kanji.toggle();
+                    katakana.setChecked(false);
+                    hiragana.setChecked(false);
+                    next.setEnabled(true);
+                    choiceManager.setKanji();
+                }
+            }
+        });
 
-    // Setting font choice
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-
-            case R.id.katakana:
-                choiceManager.setKatakana();
+        next.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
                 openLetterChoice();
-                break;
-
-            case R.id.hiragana:
-                choiceManager.setHiragana();
-                openLetterChoice();
-                break;
-
-            case R.id.kanji:
-                choiceManager.setKanji();
-                openLetterChoice();
-                break;
-
-        }
+            }
+        });
     }
 
     // Opens Letter Choice (for Button)
