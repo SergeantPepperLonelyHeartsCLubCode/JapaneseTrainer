@@ -7,31 +7,71 @@
     android:id="@+id/include"
     tools:context="startScreens.choiceScreens.FontChoiceSyllables">
 
-    <include
-        layout="@layout/homescreen_toolbar"/>
 
-    <Button
-        android:id="@+id/katakana"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="260dp"
-        android:background="@drawable/homescreen_button"
-        android:text="Katakana"
-        android:textColor="@android:color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:layout_margin="8dp"
+        android:checkable="true"
+        android:clickable="true"
+        android:focusable="true"
+        android:minHeight="148dp"
+        app:cardBackgroundColor="@color/white"
+        app:strokeColor="@color/colorPrimary"
+        app:strokeWidth="2dp">
 
-    <Button
-        android:id="@+id/hiragana"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/homescreen_button"
-        android:text="Hiragana"
-        android:textColor="@android:color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/katakana" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--<androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="194dp"
+                android:background="@color/white"
+                android:contentDescription="Card Image"
+                android:scaleType="centerCrop" />                />-->
+
+            <TextView
+                style="?attr/textAppearanceHeadline6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:text="アネ"
+                android:textSize="80sp"
+                android:textStyle="bold" />
+
+            <TextView
+                style="?attr/textAppearanceHeadline6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:text="Title goes here"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_marginTop="0dp"
+                android:maxLines="2"
+                android:text="Lorem ipsum dolor sit amet, nec no nominavi scaevola. Per et sint sapientem, nobis perpetua salutandi mei te. Quo tamquam probatus reprehendunt in. Eos esse purto eruditi ea. Enim tation persius ut sea, eos ad consul populo.
+Ne eum solet altera. Cibo eligendi et est, electram theophrastus te vel eu." />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

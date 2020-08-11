@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.japantrainer.R;
+import com.google.android.material.card.MaterialCardView;
 
 import helpClasses.managerClasses.ChoiceManager;
 import helpClasses.managerClasses.PointsManager;
@@ -41,19 +42,27 @@ public class FontChoiceSyllables extends AppCompatActivity implements View.OnCli
         toolbar = findViewById(R.id.homescreen_toolbar);
         setSupportActionBar(toolbar);
         //Setting up the back button
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         // Setting points from to TextView
         textView = findViewById(R.id.points);
-        textView.setText(String.valueOf(points.getPoints()));
+        //textView.setText(String.valueOf(points.getPoints()));
 
         // Setting up the buttons
         Button katakana = findViewById(R.id.katakana);
         Button hiragana = findViewById(R.id.hiragana);
 
-        katakana.setOnClickListener(this);
-        hiragana.setOnClickListener(this);
+        //katakana.setOnClickListener(this);
+        //hiragana.setOnClickListener(this);
+
+        final MaterialCardView cardView = findViewById(R.id.card);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) {
+                //cardView.setChecked(!cardView.isChecked());
+                cardView.toggle();
+            }
+        });
 
     }
 

@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="DefaultCard" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_marginLeft">@dimen/mtrl_card_spacing</item>
+        <item name="android:layout_marginTop">@dimen/mtrl_card_spacing</item>
+        <item name="android:layout_marginRight">@dimen/mtrl_card_spacing</item>
+        <item name="android:minHeight">200dp</item>
+    </style>
+
 </resources>
