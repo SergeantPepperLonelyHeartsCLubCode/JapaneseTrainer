@@ -9,10 +9,11 @@
 
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card"
+        android:id="@+id/hiragana"
         android:layout_width="190dp"
-        android:layout_height="230dp"
+        android:layout_height="240dp"
         android:layout_margin="8dp"
+        android:layout_marginStart="31dp"
         android:layout_marginEnd="203dp"
         android:layout_marginBottom="401dp"
         android:checkable="true"
@@ -22,8 +23,8 @@
         app:cardBackgroundColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.68"
+        app:layout_constraintStart_toEndOf="@+id/katakana"
         app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="@color/colorPrimary"
         app:strokeWidth="2dp">
@@ -33,20 +34,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!--<androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="match_parent"
-                android:layout_height="194dp"
-                android:background="@color/white"
-                android:contentDescription="Card Image"
-                android:scaleType="centerCrop" />                />-->
-
             <TextView
                 style="?attr/textAppearanceHeadline6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="10dp"
-                android:text="アネ"
+                android:text="あす"
                 android:textSize="80sp"
                 android:textStyle="bold" />
 
@@ -55,27 +49,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="10dp"
-                android:text="Title goes here"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="3dp"
+                android:text="Hiragana"
                 android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:layout_marginTop="0dp"
-                android:maxLines="2"
-                android:text="Lorem ipsum dolor sit amet, nec no nominavi scaevola. Per et sint sapientem, nobis perpetua salutandi mei te. Quo tamquam probatus reprehendunt in. Eos esse purto eruditi ea. Enim tation persius ut sea, eos ad consul populo.
-Ne eum solet altera. Cibo eligendi et est, electram theophrastus te vel eu." />
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:maxLines="3"
+                android:text="Hiragana is used for words" />
 
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card2"
+        android:id="@+id/katakana"
         android:layout_width="190dp"
-        android:layout_height="230dp"
+        android:layout_height="240dp"
         android:layout_margin="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="421dp"
@@ -85,7 +79,8 @@ Ne eum solet altera. Cibo eligendi et est, electram theophrastus te vel eu." />
         android:minHeight="148dp"
         app:cardBackgroundColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/card"
+        app:layout_constraintEnd_toStartOf="@+id/hiragana"
+        app:layout_constraintHorizontal_bias="0.77"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="@color/colorPrimary"
@@ -111,18 +106,18 @@ Ne eum solet altera. Cibo eligendi et est, electram theophrastus te vel eu." />
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="3dp"
                 android:text="Katakana"
                 android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:layout_marginTop="0dp"
-                android:maxLines="2"
-                android:text="Lorem ipsum dolor sit amet, nec no nominavi scaevola. Per et sint sapientem, nobis perpetua salutandi mei te. Quo tamquam probatus reprehendunt in. Eos esse purto eruditi ea. Enim tation persius ut sea, eos ad consul populo.
-Ne eum solet altera. Cibo eligendi et est, electram theophrastus te vel eu." />
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:maxLines="3"
+                android:text="Katakana is user for words that were taken from another languages" />
 
         </LinearLayout>
 

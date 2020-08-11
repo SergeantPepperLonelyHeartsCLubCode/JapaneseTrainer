@@ -50,17 +50,26 @@ public class FontChoiceSyllables extends AppCompatActivity implements View.OnCli
         //textView.setText(String.valueOf(points.getPoints()));
 
         // Setting up the buttons
-        Button katakana = findViewById(R.id.katakana);
-        Button hiragana = findViewById(R.id.hiragana);
+        //Button katakana = findViewById(R.id.katakana);
+        //Button hiragana = findViewById(R.id.hiragana);
 
         //katakana.setOnClickListener(this);
         //hiragana.setOnClickListener(this);
 
-        final MaterialCardView cardView = findViewById(R.id.card);
-        cardView.setOnClickListener(new View.OnClickListener() {
+        final MaterialCardView katakana = findViewById(R.id.katakana);
+        final MaterialCardView hiragana = findViewById(R.id.hiragana);
+
+        katakana.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) {
-                //cardView.setChecked(!cardView.isChecked());
-                cardView.toggle();
+                katakana.toggle();
+                hiragana.setChecked(false);
+            }
+        });
+
+        hiragana.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) {
+                hiragana.toggle();
+                katakana.setChecked(false);
             }
         });
 
