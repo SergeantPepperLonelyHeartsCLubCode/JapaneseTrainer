@@ -53,7 +53,7 @@ public class LetterChoice extends AppCompatActivity implements View.OnClickListe
                     romaji.toggle();
                     japanese.setChecked(false);
                     next.setEnabled(true);
-                    choiceManager.setKatakana();
+                    choiceManager.setRomaji();
                 }
             }
         });
@@ -64,7 +64,7 @@ public class LetterChoice extends AppCompatActivity implements View.OnClickListe
                     japanese.toggle();
                     romaji.setChecked(false);
                     next.setEnabled(true);
-                    choiceManager.setHiragana();
+                    choiceManager.setJapanese();
                 }
             }
         });
