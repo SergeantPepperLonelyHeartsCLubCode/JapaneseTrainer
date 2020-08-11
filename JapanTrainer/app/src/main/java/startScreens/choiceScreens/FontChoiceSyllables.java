@@ -54,26 +54,19 @@ public class FontChoiceSyllables extends AppCompatActivity {
         //textView.setText(String.valueOf(points.getPoints()));
 
 
-
-
         katakana.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) {
-
                 if (!katakana.isChecked()){
                     katakana.toggle();
                     hiragana.setChecked(false);
                     next.setEnabled(true);
                     choiceManager.setKatakana();
                 }
-
-
-
             }
         });
 
         hiragana.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) {
-
                 if (!hiragana.isChecked()){
                     hiragana.toggle();
                     katakana.setChecked(false);
@@ -91,7 +84,6 @@ public class FontChoiceSyllables extends AppCompatActivity {
                 openLetterChoice();
             }
         });
-
     }
 
     // Opens Letter Choice (for Button)
